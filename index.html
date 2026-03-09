@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTS快捷键训练</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>帝国时代4快捷键训练</h1>
+        
+        <!-- 模式选择按钮 -->
+        <div class="mode-selector">
+            <button id="learn-btn">学习模式</button>
+            <button id="train-btn">训练模式</button>
+        </div>
+        
+        <!-- 学习模式内容 -->
+        <div id="learn-mode" class="mode-content">
+            <div class="controls">
+                <button id="start-btn">开始训练</button>
+                <button id="pause-btn" disabled>暂停</button>
+                <button id="reset-btn" disabled>重置</button>
+                <select id="difficulty">
+                    <option value="easy">简单</option>
+                    <option value="medium">中等</option>
+                    <option value="hard">困难</option>
+                </select>
+                <div class="age-selection">
+                    <label>选择时代：</label>
+                    <input type="checkbox" id="age-Q" value="Q">
+                    <label for="age-Q">时代I</label>
+                    <input type="checkbox" id="age-W" value="W">
+                    <label for="age-W">时代II</label>
+                    <input type="checkbox" id="age-E" value="E">
+                    <label for="age-E">时代III</label>
+                    <input type="checkbox" id="age-R" value="R">
+                    <label for="age-R">时代IV</label>
+                </div>
+                <div class="count-selection">
+                    <label>训练次数：</label>
+                    <input type="number" id="training-count" min="1" max="100" value="10">
+                </div>
+            </div>
+            
+            <!-- 建筑选择区域 -->
+            <div class="building-selection">
+                <h3>建筑选择</h3>
+                
+                <!-- 时代I建筑 -->
+                <div class="age-buildings" id="age-Q-buildings">
+                    <h4>时代I建筑</h4>
+                    <button class="select-all-btn" data-age="Q">全选</button>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-Q-Q" value="Q-Q">
+                        <label for="build-Q-Q">
+                            <img src="https://data.aoe4world.com/images/buildings/house-1.png" alt="房子">
+                            房子<br>
+                            <small>House</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-Q-S" value="Q-S">
+                        <label for="build-Q-S">
+                            <img src="https://data.aoe4world.com/images/buildings/barracks-1.png" alt="兵营">
+                            兵营<br>
+                            <small>Barracks</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-Q-W" value="Q-W">
+                        <label for="build-Q-W">
+                            <img src="https://data.aoe4world.com/images/buildings/mill-1.png" alt="磨坊">
+                            磨坊<br>
+                            <small>Mill</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-Q-D" value="Q-D">
+                        <label for="build-Q-D">
+                            <img src="https://data.aoe4world.com/images/buildings/dock-1.png" alt="码头">
+                            码头<br>
+                            <small>Dock</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-Q-E" value="Q-E">
+                        <label for="build-Q-E">
+                            <img src="https://data.aoe4world.com/images/buildings/lumber-camp-1.png" alt="伐木场">
+                            伐木场<br>
+                            <small>Lumber Camp</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-Q-Z" value="Q-Z">
+                        <label for="build-Q-Z">
+                            <img src="https://data.aoe4world.com/images/buildings/outpost-1.png" alt="哨站">
+                            哨站<br>
+                            <small>Outpost</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-Q-R" value="Q-R">
+                        <label for="build-Q-R">
+                            <img src="https://data.aoe4world.com/images/buildings/mining-camp-1.png" alt="采矿场">
+                            采矿场<br>
+                            <small>Mining Camp</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-Q-X" value="Q-X">
+                        <label for="build-Q-X">
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-1.png" alt="木栅栏墙">
+                            木栅栏墙<br>
+                            <small>Palisade</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-Q-A" value="Q-A">
+                        <label for="build-Q-A">
+                            <img src="https://data.aoe4world.com/images/buildings/farm-1.png" alt="农田">
+                            农田<br>
+                            <small>Farm</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-Q-C" value="Q-C">
+                        <label for="build-Q-C">
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-gate-1.png" alt="木栅栏门">
+                            木栅栏门<br>
+                            <small>Palisade Gate</small>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 时代II建筑 -->
+                <div class="age-buildings" id="age-W-buildings">
+                    <h4>时代II建筑</h4>
+                    <button class="select-all-btn" data-age="W">全选</button>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-W-Q" value="W-Q">
+                        <label for="build-W-Q">
+                            <img src="https://data.aoe4world.com/images/buildings/blacksmith-2.png" alt="铁匠铺">
+                            铁匠铺<br>
+                            <small>Blacksmith</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-W-S" value="W-S">
+                        <label for="build-W-S">
+                            <img src="https://data.aoe4world.com/images/buildings/stable-1.png" alt="马厩">
+                            马厩<br>
+                            <small>Stable</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-W-W" value="W-W">
+                        <label for="build-W-W">
+                            <img src="https://data.aoe4world.com/images/buildings/market-2.png" alt="市场">
+                            市场<br>
+                            <small>Market</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-W-Z" value="W-Z">
+                        <label for="build-W-Z">
+                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-tower-2.png" alt="石塔">
+                            石塔<br>
+                            <small>Stone Tower</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-W-E" value="W-E">
+                        <label for="build-W-E">
+                            <img src="https://data.aoe4world.com/images/buildings/town-center-1.png" alt="城镇中心">
+                            城镇中心<br>
+                            <small>Town Center</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-W-X" value="W-X">
+                        <label for="build-W-X">
+                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-2.png" alt="石墙">
+                            石墙<br>
+                            <small>Stone Wall</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-W-A" value="W-A">
+                        <label for="build-W-A">
+                            <img src="https://data.aoe4world.com/images/buildings/archery-range-2.png" alt="射手场">
+                            射手场<br>
+                            <small>Archery Range</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-W-C" value="W-C">
+                        <label for="build-W-C">
+                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-gate-2.png" alt="石门">
+                            石门<br>
+                            <small>Stone Gate</small>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 时代III建筑 -->
+                <div class="age-buildings" id="age-E-buildings">
+                    <h4>时代III建筑</h4>
+                    <button class="select-all-btn" data-age="E">全选</button>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-E-Q" value="E-Q">
+                        <label for="build-E-Q">
+                            <img src="https://data.aoe4world.com/images/buildings/monastery-3.png" alt="修道院">
+                            修道院<br>
+                            <small>Monastery</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-E-A" value="E-A">
+                        <label for="build-E-A">
+                            <img src="https://data.aoe4world.com/images/buildings/siege-workshop-3.png" alt="攻城器械厂">
+                            攻城器械厂<br>
+                            <small>Siege Workshop</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-E-Z" value="E-Z">
+                        <label for="build-E-Z">
+                            <img src="https://data.aoe4world.com/images/buildings/keep-3.png" alt="堡垒">
+                            堡垒<br>
+                            <small>Castle</small>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 时代IV建筑 -->
+                <div class="age-buildings" id="age-R-buildings">
+                    <h4>时代IV建筑</h4>
+                    <button class="select-all-btn" data-age="R">全选</button>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="build-R-Q" value="R-Q">
+                        <label for="build-R-Q">
+                            <img src="https://data.aoe4world.com/images/buildings/university-4.png" alt="大学">
+                            大学<br>
+                            <small>University</small>
+                        </label>
+                    </div>
+                </div>
+                
+                <button id="confirm-selection-btn">选好了</button>
+            </div>
+            <div class="game-area">
+                <div class="target" id="target"></div>
+                <div class="feedback" id="feedback"></div>
+                <div class="stats">
+                    <div>正确: <span id="correct">0</span></div>
+                    <div>错误: <span id="wrong">0</span></div>
+                    <div>时间: <span id="time">0</span>s</div>
+                    <div>进度: <span id="progress">0</span>/<span id="total-count">0</span></div>
+                </div>
+            </div>
+            <div class="key-list" id="key-list">
+                <h2>帝国时代4快捷键列表</h2>
+                
+                <h3>时代I 建筑 (按Q进入)</h3>
+                <ul>
+                    <li>Q - 房子</li>
+                    <li>S - 兵营</li>
+                    <li>W - 磨坊</li>
+                    <li>D - 码头</li>
+                    <li>E - 伐木场</li>
+                    <li>Z - 哨站</li>
+                    <li>R - 采矿场</li>
+                    <li>X - 木栅栏墙</li>
+                    <li>A - 农田</li>
+                    <li>C - 木栅栏门</li>
+                </ul>
+                
+                <h3>时代II 建筑 (按W进入)</h3>
+                <ul>
+                    <li>Q - 铁匠铺</li>
+                    <li>S - 马厩</li>
+                    <li>W - 市场</li>
+                    <li>Z - 石塔</li>
+                    <li>E - 城镇中心</li>
+                    <li>X - 石墙</li>
+                    <li>A - 射手场</li>
+                    <li>C - 石门</li>
+                </ul>
+                
+                <h3>时代III 建筑 (按E进入)</h3>
+                <ul>
+                    <li>Q - 修道院</li>
+                    <li>A - 攻城器械厂</li>
+                    <li>Z - 堡垒</li>
+                </ul>
+                
+                <h3>时代IV 建筑 (按R进入)</h3>
+                <ul>
+                    <li>Q - 大学</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 训练模式内容 -->
+        <div id="train-mode" class="mode-content" style="display: none;">
+            <div class="controls">
+                <button id="train-start-btn">开始训练</button>
+                <button id="train-pause-btn" disabled>暂停</button>
+                <button id="train-reset-btn" disabled>重置</button>
+                <select id="train-difficulty">
+                    <option value="easy">简单</option>
+                    <option value="medium">中等</option>
+                    <option value="hard">困难</option>
+                </select>
+                <div class="age-selection">
+                    <label>选择时代：</label>
+                    <input type="checkbox" id="train-age-Q" value="Q">
+                    <label for="train-age-Q">时代I</label>
+                    <input type="checkbox" id="train-age-W" value="W">
+                    <label for="train-age-W">时代II</label>
+                    <input type="checkbox" id="train-age-E" value="E">
+                    <label for="train-age-E">时代III</label>
+                    <input type="checkbox" id="train-age-R" value="R">
+                    <label for="train-age-R">时代IV</label>
+                </div>
+                <div class="count-selection">
+                    <label>训练次数：</label>
+                    <input type="number" id="train-training-count" min="1" max="100" value="10">
+                </div>
+            </div>
+            
+            <!-- 建筑选择区域 -->
+            <div class="building-selection">
+                <h3>建筑选择</h3>
+                
+                <!-- 时代I建筑 -->
+                <div class="age-buildings" id="train-age-Q-buildings" style="display: none;">
+                    <h4>时代I建筑</h4>
+                    <button class="select-all-btn" data-age="train-Q">全选</button>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-Q-Q" value="Q-Q">
+                        <label for="train-build-Q-Q">
+                            <img src="https://data.aoe4world.com/images/buildings/house-1.png" alt="房子">
+                            房子<br>
+                            <small>House</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-Q-S" value="Q-S">
+                        <label for="train-build-Q-S">
+                            <img src="https://data.aoe4world.com/images/buildings/barracks-1.png" alt="兵营">
+                            兵营<br>
+                            <small>Barracks</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-Q-W" value="Q-W">
+                        <label for="train-build-Q-W">
+                            <img src="https://data.aoe4world.com/images/buildings/mill-1.png" alt="磨坊">
+                            磨坊<br>
+                            <small>Mill</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-Q-D" value="Q-D">
+                        <label for="train-build-Q-D">
+                            <img src="https://data.aoe4world.com/images/buildings/dock-1.png" alt="码头">
+                            码头<br>
+                            <small>Dock</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-Q-E" value="Q-E">
+                        <label for="train-build-Q-E">
+                            <img src="https://data.aoe4world.com/images/buildings/lumber-camp-1.png" alt="伐木场">
+                            伐木场<br>
+                            <small>Lumber Camp</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-Q-Z" value="Q-Z">
+                        <label for="train-build-Q-Z">
+                            <img src="https://data.aoe4world.com/images/buildings/outpost-1.png" alt="哨站">
+                            哨站<br>
+                            <small>Outpost</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-Q-R" value="Q-R">
+                        <label for="train-build-Q-R">
+                            <img src="https://data.aoe4world.com/images/buildings/mining-camp-1.png" alt="采矿场">
+                            采矿场<br>
+                            <small>Mining Camp</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-Q-X" value="Q-X">
+                        <label for="train-build-Q-X">
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-1.png" alt="木栅栏墙">
+                            木栅栏墙<br>
+                            <small>Palisade</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-Q-A" value="Q-A">
+                        <label for="train-build-Q-A">
+                            <img src="https://data.aoe4world.com/images/buildings/farm-1.png" alt="农田">
+                            农田<br>
+                            <small>Farm</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-Q-C" value="Q-C">
+                        <label for="train-build-Q-C">
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-gate-1.png" alt="木栅栏门">
+                            木栅栏门<br>
+                            <small>Palisade Gate</small>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 时代II建筑 -->
+                <div class="age-buildings" id="train-age-W-buildings" style="display: none;">
+                    <h4>时代II建筑</h4>
+                    <button class="select-all-btn" data-age="train-W">全选</button>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-W-Q" value="W-Q">
+                        <label for="train-build-W-Q">
+                            <img src="https://data.aoe4world.com/images/buildings/blacksmith-2.png" alt="铁匠铺">
+                            铁匠铺<br>
+                            <small>Blacksmith</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-W-S" value="W-S">
+                        <label for="train-build-W-S">
+                            <img src="https://data.aoe4world.com/images/buildings/stable-1.png" alt="马厩">
+                            马厩<br>
+                            <small>Stable</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-W-W" value="W-W">
+                        <label for="train-build-W-W">
+                            <img src="https://data.aoe4world.com/images/buildings/market-2.png" alt="市场">
+                            市场<br>
+                            <small>Market</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-W-Z" value="W-Z">
+                        <label for="train-build-W-Z">
+                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-tower-2.png" alt="石塔">
+                            石塔<br>
+                            <small>Stone Tower</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-W-E" value="W-E">
+                        <label for="train-build-W-E">
+                            <img src="https://data.aoe4world.com/images/buildings/town-center-1.png" alt="城镇中心">
+                            城镇中心<br>
+                            <small>Town Center</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-W-X" value="W-X">
+                        <label for="train-build-W-X">
+                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-2.png" alt="石墙">
+                            石墙<br>
+                            <small>Stone Wall</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-W-A" value="W-A">
+                        <label for="train-build-W-A">
+                            <img src="https://data.aoe4world.com/images/buildings/archery-range-2.png" alt="射手场">
+                            射手场<br>
+                            <small>Archery Range</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-W-C" value="W-C">
+                        <label for="train-build-W-C">
+                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-gate-2.png" alt="石门">
+                            石门<br>
+                            <small>Stone Gate</small>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 时代III建筑 -->
+                <div class="age-buildings" id="train-age-E-buildings" style="display: none;">
+                    <h4>时代III建筑</h4>
+                    <button class="select-all-btn" data-age="train-E">全选</button>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-E-Q" value="E-Q">
+                        <label for="train-build-E-Q">
+                            <img src="https://data.aoe4world.com/images/buildings/monastery-3.png" alt="修道院">
+                            修道院<br>
+                            <small>Monastery</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-E-A" value="E-A">
+                        <label for="train-build-E-A">
+                            <img src="https://data.aoe4world.com/images/buildings/siege-workshop-3.png" alt="攻城器械厂">
+                            攻城器械厂<br>
+                            <small>Siege Workshop</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-E-Z" value="E-Z">
+                        <label for="train-build-E-Z">
+                            <img src="https://data.aoe4world.com/images/buildings/keep-3.png" alt="堡垒">
+                            堡垒<br>
+                            <small>Castle</small>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 时代IV建筑 -->
+                <div class="age-buildings" id="train-age-R-buildings" style="display: none;">
+                    <h4>时代IV建筑</h4>
+                    <button class="select-all-btn" data-age="train-R">全选</button>
+                    <div class="building-checkbox">
+                        <input type="checkbox" id="train-build-R-Q" value="R-Q">
+                        <label for="train-build-R-Q">
+                            <img src="https://data.aoe4world.com/images/buildings/university-4.png" alt="大学">
+                            大学<br>
+                            <small>University</small>
+                        </label>
+                    </div>
+                </div>
+                
+                <button id="train-confirm-selection-btn">选好了</button>
+            </div>
+            <div class="game-area">
+                <div class="target" id="train-target"></div>
+                <div class="feedback" id="train-feedback"></div>
+                <div class="stats">
+                    <div>正确: <span id="train-correct">0</span></div>
+                    <div>错误: <span id="train-wrong">0</span></div>
+                    <div>时间: <span id="train-time">0</span>s</div>
+                    <div>进度: <span id="train-progress">0</span>/<span id="train-total-count">0</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
