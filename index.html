@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -10,23 +10,136 @@
     <div class="container">
         <h1>帝国时代4快捷键训练</h1>
         
+        <!-- 说明文字 -->
+        <div class="intro-text" style="background-color: #252525; padding: 20px; border-radius: 10px; margin-bottom: 30px; color: #e0e0e0;">
+            <p style="margin-bottom: 15px;">如你所见，这个网站是用来给地瓜萌新训练基础快捷键的地方。其目的是通过提前熟悉快捷键的使用，让使用者快速熟悉快捷键，从而快速摆脱纯鼠标流的痛点。</p>
+            <p style="margin-bottom: 15px;">其中有学习模式和训练模式：</p>
+            <p style="margin-bottom: 10px; padding-left: 20px;">• <strong>学习模式</strong>：可以选定你要练习的建筑快捷键，从而练习</p>
+            <p style="margin-bottom: 15px; padding-left: 20px;">• <strong>训练模式</strong>：可以选择你要训练的快捷键进行训练</p>
+            <p style="color: #aaaaaa;">这个网站过于简单，目前还在搭建，如有问题咕咕嘎嘎</p>
+        </div>
+        
+        <!-- 文明选择页面 -->
+        <div id="civ-selection" class="mode-content">
+            <h2>选择文明</h2>
+            <div class="civ-grid">
+                <button class="civ-btn" data-civ="abbasid" data-bg="https://www.ageofempires.com/wp-content/uploads/2021/06/bg-age4-civ-abb-splash-right-desk.webp">
+                    <img src="https://static.aoe4world.com/vite/assets/ab-e3be9651.png" alt="黑衣大食">
+                    <span>黑衣大食</span>
+                </button>
+                <button class="civ-btn" data-civ="ayyubid" data-bg="https://www.ageofempires.com/wp-content/uploads/2023/09/ABB-AYY_Keyart_Ayyubids_1920x1080-1.png">
+                    <img src="https://static.aoe4world.com/vite/assets/ay-9a60b16b.png" alt="阿尤王朝">
+                    <span>阿尤王朝</span>
+                </button>
+                <button class="civ-btn" data-civ="byzantine" data-bg="https://www.ageofempires.com/wp-content/uploads/2023/09/BYZ_keyart_Byzantines_1920x1080.png">
+                    <img src="https://static.aoe4world.com/vite/assets/by-5fa0ea3f.png" alt="拜占庭">
+                    <span>拜占庭</span>
+                </button>
+                <button class="civ-btn" data-civ="chinese" data-bg="https://www.ageofempires.com/wp-content/uploads/2021/06/bg-age4-civ-chi-splash-right-desk.png">
+                    <img src="https://static.aoe4world.com/vite/assets/ch-889d9920.png" alt="中国">
+                    <span>中国</span>
+                </button>
+                <button class="civ-btn" data-civ="delhi" data-bg="https://www.ageofempires.com/wp-content/uploads/2021/06/bg-age4-civ-del-splash-right-desk.png">
+                    <img src="https://static.aoe4world.com/vite/assets/de-47cad142.png" alt="德里苏丹">
+                    <span>德里苏丹</span>
+                </button>
+                <button class="civ-btn" data-civ="english" data-bg="https://www.ageofempires.com/wp-content/uploads/2021/06/bg-age4-civ-eng-splash-right-desk.png">
+                    <img src="https://static.aoe4world.com/vite/assets/en-9cb03e75.png" alt="英格兰">
+                    <span>英格兰</span>
+                </button>
+                <button class="civ-btn" data-civ="french" data-bg="https://www.ageofempires.com/wp-content/uploads/2021/06/bg-age4-civ-fre-splash-right-desk.webp">
+                    <img src="https://static.aoe4world.com/vite/assets/fr-549f1952.png" alt="法兰西">
+                    <span>法兰西</span>
+                </button>
+                <button class="civ-btn" data-civ="goldenhorde" data-bg="https://cdn.ageofempires.com/aoe/wp-content/uploads/2025/11/AoEIV-DynastiesOfTheEast-WatchYourSteppe-4K.webp">
+                    <img src="https://static.aoe4world.com/vite/assets/goldenhorde-54c12b85.png" alt="金帐汗国">
+                    <span>金帐汗国</span>
+                </button>
+                <button class="civ-btn" data-civ="holyroman" data-bg="https://www.ageofempires.com/wp-content/uploads/2021/08/bg-age4-civ-hre-splash-right-desk.webp">
+                    <img src="https://static.aoe4world.com/vite/assets/hr-3bbbd5e3.png" alt="神圣罗马帝国">
+                    <span>神圣罗马帝国</span>
+                </button>
+                <button class="civ-btn" data-civ="lancaster" data-bg="https://cdn.ageofempires.com/aoe/wp-content/uploads/2025/03/KnightsTemplar-HouseOfLancaster_3840x2160-KOCR.webp">
+                    <img src="https://static.aoe4world.com/vite/assets/hl-17263954.png" alt="兰开斯特王朝">
+                    <span>兰开斯特王朝</span>
+                </button>
+                <button class="civ-btn" data-civ="japanese" data-bg="https://www.ageofempires.com/wp-content/uploads/2023/09/JPN_keyart_Japanese_1920x1036.png">
+                    <img src="https://static.aoe4world.com/vite/assets/ja-11f498ae.png" alt="日本">
+                    <span>日本</span>
+                </button>
+                <button class="civ-btn" data-civ="jeannedarc" data-bg="https://www.ageofempires.com/wp-content/uploads/2023/10/FRE_JDA_keyart_cropped_civ-page_1920x1090_2.png">
+                    <img src="https://static.aoe4world.com/vite/assets/jeannedarc-9c70961e.png" alt="圣女贞德">
+                    <span>圣女贞德</span>
+                </button>
+                <button class="civ-btn" data-civ="knights" data-bg="https://cdn.ageofempires.com/aoe/wp-content/uploads/2025/03/KnightsTemplar-HouseOfLancaster_3840x2160-KOCR.webp">
+                    <img src="https://static.aoe4world.com/vite/assets/kt-d78c3272.png" alt="圣殿骑士团">
+                    <span>圣殿骑士团</span>
+                </button>
+                <button class="civ-btn" data-civ="macedonian" data-bg="https://cdn.ageofempires.com/aoe/wp-content/uploads/2025/11/AoEIV-DynastiesOfTheEast-ContestedCoastline-4K.webp">
+                    <img src="https://static.aoe4world.com/vite/assets/macedonian-892259f7.png" alt="马其顿王朝">
+                    <span>马其顿王朝</span>
+                </button>
+                <button class="civ-btn" data-civ="malians" data-bg="https://www.ageofempires.com/wp-content/uploads/2022/08/bg-age4-civ-mal-splash-right-desk.png">
+                    <img src="https://static.aoe4world.com/vite/assets/malians-c194643c.png" alt="马里">
+                    <span>马里</span>
+                </button>
+                <button class="civ-btn" data-civ="mongol" data-bg="https://www.ageofempires.com/wp-content/uploads/2021/06/bg-age4-civ-mon-splash-right-desk.png">
+                    <img src="https://static.aoe4world.com/vite/assets/mo-47536d49.png" alt="蒙古">
+                    <span>蒙古</span>
+                </button>
+                <button class="civ-btn" data-civ="odyssey" data-bg="https://www.ageofempires.com/wp-content/uploads/2023/10/HRE-OotD_Keyart_Order-of-the-Dragon_1920x1090.png">
+                    <img src="https://static.aoe4world.com/vite/assets/od-835af597.png" alt="龙之骑士团">
+                    <span>龙之骑士团</span>
+                </button>
+                <button class="civ-btn" data-civ="ottomans" data-bg="https://www.ageofempires.com/wp-content/uploads/2022/08/bg-age4-civ-ott-splash-right-desk.png">
+                    <img src="https://static.aoe4world.com/vite/assets/ottomans-1e330a73.png" alt="奥斯曼">
+                    <span>奥斯曼</span>
+                </button>
+                <button class="civ-btn" data-civ="russian" data-bg="https://www.ageofempires.com/wp-content/uploads/2021/08/bg-age4-civ-rus-splash-right-desk.png">
+                    <img src="https://static.aoe4world.com/vite/assets/ru-aec8f40f.png" alt="罗斯">
+                    <span>罗斯</span>
+                </button>
+                <button class="civ-btn" data-civ="sengoku" data-bg="https://cdn.ageofempires.com/aoe/wp-content/uploads/2025/11/AoEIV-DynastiesOfTheEast-DaimyoDynamics-4K.webp">
+                    <img src="https://static.aoe4world.com/vite/assets/sengoku-1cf1ebfb.png" alt="战国大名">
+                    <span>战国大名</span>
+                </button>
+                <button class="civ-btn" data-civ="tughlaq" data-bg="https://cdn.ageofempires.com/aoe/wp-content/uploads/2025/11/AoEIV-DynastiesOfTheEast-ForestLords-4K.webp">
+                    <img src="https://static.aoe4world.com/vite/assets/tughlaq-fe1414db.png" alt="图格鲁克王朝">
+                    <span>图格鲁克王朝</span>
+                </button>
+                <button class="civ-btn" data-civ="zhu" data-bg="https://www.ageofempires.com/wp-content/uploads/2023/09/CHI-ZXL_Keyart_Zhu-Xis-Legacy_1920x1080.png">
+                    <img src="https://static.aoe4world.com/vite/assets/zhuxi-f21662c7.png" alt="朱子遗训">
+                    <span>朱子遗训</span>
+                </button>
+            </div>
+        </div>
+        
         <!-- 模式选择按钮 -->
-        <div class="mode-selector">
+        <div id="mode-selector" class="mode-selector" style="display: none;">
             <button id="learn-btn">学习模式</button>
             <button id="train-btn">训练模式</button>
+            <button id="wrong-answers-btn">错题本</button>
+            <button id="reselect-civ-btn">重新选择文明</button>
+        </div>
+        
+        <!-- 错题本页面 -->
+        <div id="wrong-answers-page" class="mode-content" style="display: none;">
+            <h2>错题本</h2>
+            <div style="margin-bottom: 20px;">
+                <button id="clear-wrong-answers-btn">清空错题记录</button>
+            </div>
+            <div id="wrong-answers-list" style="background-color: #252525; padding: 20px; border-radius: 10px; margin-bottom: 30px; color: #e0e0e0;">
+                <p>暂无错题记录</p>
+            </div>
+            <button id="back-to-mode-select-btn">返回模式选择</button>
         </div>
         
         <!-- 学习模式内容 -->
-        <div id="learn-mode" class="mode-content">
+        <div id="learn-mode" class="mode-content" style="display: none;">
             <div class="controls">
                 <button id="start-btn">开始训练</button>
                 <button id="pause-btn" disabled>暂停</button>
                 <button id="reset-btn" disabled>重置</button>
-                <select id="difficulty">
-                    <option value="easy">简单</option>
-                    <option value="medium">中等</option>
-                    <option value="hard">困难</option>
-                </select>
                 <div class="age-selection">
                     <label>选择时代：</label>
                     <input type="checkbox" id="age-Q" value="Q">
@@ -55,9 +168,15 @@
                     <div class="building-checkbox">
                         <input type="checkbox" id="build-Q-Q" value="Q-Q">
                         <label for="build-Q-Q">
-                            <img src="https://data.aoe4world.com/images/buildings/house-1.png" alt="房子">
-                            房子<br>
-                            <small>House</small>
+                            <img src="https://data.aoe4world.com/images/buildings/house-1.png" alt="房屋">
+                            房屋<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific japanese">
+                        <input type="checkbox" id="build-Q-Q-japanese" value="Q-Q">
+                        <label for="build-Q-Q-japanese">
+                            <img src="https://data.aoe4world.com/images/buildings/farmhouse-1.png" alt="农舍">
+                            农舍<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -65,7 +184,6 @@
                         <label for="build-Q-S">
                             <img src="https://data.aoe4world.com/images/buildings/barracks-1.png" alt="兵营">
                             兵营<br>
-                            <small>Barracks</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -73,7 +191,6 @@
                         <label for="build-Q-W">
                             <img src="https://data.aoe4world.com/images/buildings/mill-1.png" alt="磨坊">
                             磨坊<br>
-                            <small>Mill</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -81,15 +198,21 @@
                         <label for="build-Q-D">
                             <img src="https://data.aoe4world.com/images/buildings/dock-1.png" alt="码头">
                             码头<br>
-                            <small>Dock</small>
                         </label>
                     </div>
+                    <div class="building-checkbox civ-specific knights">
+                        <input type="checkbox" id="build-Q-D-knights" value="Q-D">
+                        <label for="build-Q-D-knights">
+                            <img src="https://data.aoe4world.com/images/buildings/dock-1.png" alt="巨港">
+                            巨港<br>
+                        </label>
+                    </div>
+
                     <div class="building-checkbox">
                         <input type="checkbox" id="build-Q-E" value="Q-E">
                         <label for="build-Q-E">
                             <img src="https://data.aoe4world.com/images/buildings/lumber-camp-1.png" alt="伐木场">
                             伐木场<br>
-                            <small>Lumber Camp</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -97,7 +220,6 @@
                         <label for="build-Q-Z">
                             <img src="https://data.aoe4world.com/images/buildings/outpost-1.png" alt="哨站">
                             哨站<br>
-                            <small>Outpost</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -105,15 +227,20 @@
                         <label for="build-Q-R">
                             <img src="https://data.aoe4world.com/images/buildings/mining-camp-1.png" alt="采矿场">
                             采矿场<br>
-                            <small>Mining Camp</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific japanese">
+                        <input type="checkbox" id="build-Q-R-japanese" value="Q-R">
+                        <label for="build-Q-R-japanese">
+                            <img src="https://data.aoe4world.com/images/buildings/forge-1.png" alt="锻造厂">
+                            锻造厂<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="build-Q-X" value="Q-X">
                         <label for="build-Q-X">
-                            <img src="https://data.aoe4world.com/images/buildings/palisade-1.png" alt="木栅栏墙">
-                            木栅栏墙<br>
-                            <small>Palisade</small>
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-1.png" alt="木栅栏">
+                            木栅栏<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -121,15 +248,230 @@
                         <label for="build-Q-A">
                             <img src="https://data.aoe4world.com/images/buildings/farm-1.png" alt="农田">
                             农田<br>
-                            <small>Farm</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific abbasid">
+                        <input type="checkbox" id="build-Q-F" value="Q-F">
+                        <label for="build-Q-F">
+                            <img src="https://data.aoe4world.com/images/buildings/house-of-wisdom-1.png" alt="智慧宫">
+                            智慧宫<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific ayyubid">
+                        <input type="checkbox" id="build-Q-F-ayyubid" value="Q-F">
+                        <label for="build-Q-F-ayyubid">
+                            <img src="https://data.aoe4world.com/images/buildings/house-of-wisdom-1.png" alt="智慧宫">
+                            智慧宫<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific byzantine">
+                        <input type="checkbox" id="build-Q-F-byzantine" value="Q-F">
+                        <label for="build-Q-F-byzantine">
+                            <img src="https://data.aoe4world.com/images/buildings/cistern-1.png" alt="水池">
+                            水池<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific byzantine">
+                        <input type="checkbox" id="build-Q-V" value="Q-V">
+                        <label for="build-Q-V">
+                            <img src="https://data.aoe4world.com/images/buildings/aqueduct-1.png" alt="水渠">
+                            水渠<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific byzantine">
+                        <input type="checkbox" id="build-Q-A-byzantine" value="Q-A">
+                        <label for="build-Q-A-byzantine">
+                            <img src="https://data.aoe4world.com/images/buildings/olive-grove-1.png" alt="橄榄树林">
+                            橄榄树林<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific chinese">
+                        <input type="checkbox" id="build-Q-F-chinese" value="Q-F">
+                        <label for="build-Q-F-chinese">
+                            <img src="https://data.aoe4world.com/images/buildings/village-1.png" alt="村庄">
+                            村庄<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific zhu">
+                        <input type="checkbox" id="build-Q-F-zhu" value="Q-F">
+                        <label for="build-Q-F-zhu">
+                            <img src="https://data.aoe4world.com/images/buildings/village-1.png" alt="村庄">
+                            村庄<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific delhi">
+                        <input type="checkbox" id="build-Q-F-delhi" value="Q-F">
+                        <label for="build-Q-F-delhi">
+                            <img src="https://data.aoe4world.com/images/buildings/monastery-3.png" alt="修道院">
+                            修道院<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="build-Q-C" value="Q-C">
                         <label for="build-Q-C">
-                            <img src="https://data.aoe4world.com/images/buildings/palisade-gate-1.png" alt="木栅栏门">
-                            木栅栏门<br>
-                            <small>Palisade Gate</small>
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-gate-1.png" alt="木城门">
+                            木城门<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="build-Q-Q-goldenhorde" value="Q-Q">
+                        <label for="build-Q-Q-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/relic-ovoo-1.png" alt="敖包">
+                            敖包<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="build-Q-W-goldenhorde" value="Q-W">
+                        <label for="build-Q-W-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/ger-1.png" alt="蒙古包">
+                            蒙古包<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="build-Q-Z-goldenhorde" value="Q-Z">
+                        <label for="build-Q-Z-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/fortified-outpost-1.png" alt="设防哨站">
+                            设防哨站<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="build-Q-A-goldenhorde" value="Q-A">
+                        <label for="build-Q-A-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/stockyard-1.png" alt="牲畜围栏">
+                            牲畜围栏<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="build-Q-F-goldenhorde" value="Q-F">
+                        <label for="build-Q-F-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/stable-1.png" alt="马厩">
+                            马厩<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="build-Q-V-goldenhorde" value="Q-V">
+                        <label for="build-Q-V-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/golden-tent-2.png" alt="黄金帐篷">
+                            黄金帐篷<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific macedonian">
+                        <input type="checkbox" id="build-Q-F-macedonian" value="Q-F">
+                        <label for="build-Q-F-macedonian">
+                            <img src="https://data.aoe4world.com/images/buildings/varangian-warcamp-1.png" alt="瓦兰吉军营">
+                            瓦兰吉军营<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific macedonian">
+                        <input type="checkbox" id="build-Q-S-macedonian" value="Q-S">
+                        <label for="build-Q-S-macedonian">
+                            <img src="https://data.aoe4world.com/images/buildings/varangian-stronghold-1.png" alt="瓦兰吉城堡">
+                            瓦兰吉城堡<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific malians">
+                        <input type="checkbox" id="build-Q-F-malians" value="Q-F">
+                        <label for="build-Q-F-malians">
+                            <img src="https://data.aoe4world.com/images/buildings/pit-mine-1.png" alt="露天矿区">
+                            露天矿区<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific malians">
+                        <input type="checkbox" id="build-Q-Z-malians" value="Q-Z">
+                        <label for="build-Q-Z-malians">
+                            <img src="https://data.aoe4world.com/images/buildings/toll-outpost-1.png" alt="收费哨站">
+                            收费哨站<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific mongol">
+                        <input type="checkbox" id="build-Q-A-mongol" value="Q-A">
+                        <label for="build-Q-A-mongol">
+                            <img src="https://data.aoe4world.com/images/buildings/pasture-1.png" alt="牧场">
+                            牧场<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific mongol">
+                        <input type="checkbox" id="build-Q-Q-mongol" value="Q-Q">
+                        <label for="build-Q-Q-mongol">
+                            <img src="https://data.aoe4world.com/images/buildings/ovoo-1.png" alt="敖包">
+                            敖包<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific mongol">
+                        <input type="checkbox" id="build-Q-W-mongol" value="Q-W">
+                        <label for="build-Q-W-mongol">
+                            <img src="https://data.aoe4world.com/images/buildings/ger-1.png" alt="蒙古包">
+                            蒙古包<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific mongol">
+                        <input type="checkbox" id="build-Q-F-mongol" value="Q-F">
+                        <label for="build-Q-F-mongol">
+                            <img src="https://data.aoe4world.com/images/buildings/stable-1.png" alt="马厩">
+                            马厩<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific ottomans">
+                        <input type="checkbox" id="build-Q-F-ottomans" value="Q-F">
+                        <label for="build-Q-F-ottomans">
+                            <img src="https://data.aoe4world.com/images/buildings/military-school-1.png" alt="军事学校">
+                            军事学校<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific russian">
+                        <input type="checkbox" id="build-Q-W-russian" value="Q-W">
+                        <label for="build-Q-W-russian">
+                            <img src="https://data.aoe4world.com/images/buildings/hunting-cabin-1.png" alt="狩猎小屋">
+                            狩猎小屋<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific russian">
+                        <input type="checkbox" id="build-Q-Z-russian" value="Q-Z">
+                        <label for="build-Q-Z-russian">
+                            <img src="https://data.aoe4world.com/images/buildings/wooden-fortress-1.png" alt="木质要塞">
+                            木质要塞<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific russian">
+                        <input type="checkbox" id="build-Q-X-russian" value="Q-X">
+                        <label for="build-Q-X-russian">
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-1.png" alt="硬木栅栏">
+                            硬木栅栏<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific russian">
+                        <input type="checkbox" id="build-Q-C-russian" value="Q-C">
+                        <label for="build-Q-C-russian">
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-gate-1.png" alt="强化木墙门">
+                            强化木墙门<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="build-Q-W-sengoku" value="Q-W">
+                        <label for="build-Q-W-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/matsuri-1.png" alt="祭典">
+                            祭典<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="build-Q-Q-sengoku" value="Q-Q">
+                        <label for="build-Q-Q-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/farmhouse-1.png" alt="农舍">
+                            农舍<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="build-Q-R-sengoku" value="Q-R">
+                        <label for="build-Q-R-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/forge-1.png" alt="锻造厂">
+                            锻造厂<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific tughlaq">
+                        <input type="checkbox" id="build-Q-W-tughlaq" value="Q-W">
+                        <label for="build-Q-W-tughlaq">
+                            <img src="https://data.aoe4world.com/images/units/worker-elephant-2.png" alt="工作大象">
+                            工作大象<br>
                         </label>
                     </div>
                 </div>
@@ -143,7 +485,6 @@
                         <label for="build-W-Q">
                             <img src="https://data.aoe4world.com/images/buildings/blacksmith-2.png" alt="铁匠铺">
                             铁匠铺<br>
-                            <small>Blacksmith</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -151,7 +492,6 @@
                         <label for="build-W-S">
                             <img src="https://data.aoe4world.com/images/buildings/stable-1.png" alt="马厩">
                             马厩<br>
-                            <small>Stable</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -159,15 +499,13 @@
                         <label for="build-W-W">
                             <img src="https://data.aoe4world.com/images/buildings/market-2.png" alt="市场">
                             市场<br>
-                            <small>Market</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="build-W-Z" value="W-Z">
                         <label for="build-W-Z">
-                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-tower-2.png" alt="石塔">
-                            石塔<br>
-                            <small>Stone Tower</small>
+                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-tower-2.png" alt="石墙塔">
+                            石墙塔<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -175,7 +513,6 @@
                         <label for="build-W-E">
                             <img src="https://data.aoe4world.com/images/buildings/town-center-1.png" alt="城镇中心">
                             城镇中心<br>
-                            <small>Town Center</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -183,23 +520,97 @@
                         <label for="build-W-X">
                             <img src="https://data.aoe4world.com/images/buildings/stone-wall-2.png" alt="石墙">
                             石墙<br>
-                            <small>Stone Wall</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="build-W-A" value="W-A">
                         <label for="build-W-A">
-                            <img src="https://data.aoe4world.com/images/buildings/archery-range-2.png" alt="射手场">
-                            射手场<br>
-                            <small>Archery Range</small>
+                            <img src="https://data.aoe4world.com/images/buildings/archery-range-2.png" alt="靶场">
+                            靶场<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="build-W-C" value="W-C">
                         <label for="build-W-C">
-                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-gate-2.png" alt="石门">
-                            石门<br>
-                            <small>Stone Gate</small>
+                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-gate-2.png" alt="石墙城门">
+                            石墙城门<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific byzantine">
+                        <input type="checkbox" id="build-W-D" value="W-D">
+                        <label for="build-W-D">
+                            <img src="https://data.aoe4world.com/images/buildings/mercenary-house-2.png" alt="雇佣兵之家">
+                            雇佣兵之家<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific chinese">
+                        <input type="checkbox" id="build-W-D-chinese" value="W-D">
+                        <label for="build-W-D-chinese">
+                            <img src="https://data.aoe4world.com/images/buildings/granary-1.png" alt="谷仓">
+                            谷仓<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific zhu">
+                        <input type="checkbox" id="build-W-D-zhu" value="W-D">
+                        <label for="build-W-D-zhu">
+                            <img src="https://data.aoe4world.com/images/buildings/granary-1.png" alt="谷仓">
+                            谷仓<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific lancaster">
+                        <input type="checkbox" id="build-W-D-lancaster" value="W-D">
+                        <label for="build-W-D-lancaster">
+                            <img src="https://data.aoe4world.com/images/buildings/manor-2.png" alt="庄园">
+                            庄园<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific knights">
+                        <input type="checkbox" id="build-W-D-knights" value="W-D">
+                        <label for="build-W-D-knights">
+                            <img src="https://data.aoe4world.com/images/buildings/fortress-2.png" alt="要塞">
+                            要塞<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific macedonian">
+                        <input type="checkbox" id="build-W-Q-macedonian" value="W-Q">
+                        <label for="build-W-Q-macedonian">
+                            <img src="https://data.aoe4world.com/images/buildings/varangian-arsenal-2.png" alt="瓦兰吉兵工厂">
+                            瓦兰吉兵工厂<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific malians">
+                        <input type="checkbox" id="build-W-D-malians" value="W-D">
+                        <label for="build-W-D-malians">
+                            <img src="https://data.aoe4world.com/images/buildings/cattle-ranch-2.png" alt="养牛场">
+                            养牛场<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific tughlaq">
+                        <input type="checkbox" id="build-W-D-tughlaq" value="W-D">
+                        <label for="build-W-D-tughlaq">
+                            <img src="https://data.aoe4world.com/images/buildings/tughlaqabad-fort-2.png" alt="腾格拉卡巴德城堡">
+                            腾格拉卡巴德城堡<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="build-W-V-sengoku" value="W-V">
+                        <label for="build-W-V-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/takeda-clan-daimyo-estate-2.png" alt="武田大名府邸">
+                            武田大名府邸<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="build-W-F-sengoku" value="W-F">
+                        <label for="build-W-F-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/oda-clan-daimyo-estate-2.png" alt="织田大名府邸">
+                            织田大名府邸<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="build-W-R-sengoku" value="W-R">
+                        <label for="build-W-R-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/hojo-clan-daimyo-estate-2.png" alt="北条大名府邸">
+                            北条大名府邸<br>
                         </label>
                     </div>
                 </div>
@@ -208,28 +619,53 @@
                 <div class="age-buildings" id="age-E-buildings">
                     <h4>时代III建筑</h4>
                     <button class="select-all-btn" data-age="E">全选</button>
+
                     <div class="building-checkbox">
                         <input type="checkbox" id="build-E-Q" value="E-Q">
                         <label for="build-E-Q">
-                            <img src="https://data.aoe4world.com/images/buildings/monastery-3.png" alt="修道院">
+                            <div class="monastery-images">
+                                <img src="https://data.aoe4world.com/images/buildings/monastery-3.png" alt="修道院" class="default-image">
+                                <div class="alternating-images" style="display: none;">
+                                    <img src="https://data.aoe4world.com/images/buildings/buddhist-temple-3.png" alt="佛教寺庙">
+                                    <img src="https://data.aoe4world.com/images/buildings/shinto-shrine-3.png" alt="神社">
+                                </div>
+                            </div>
                             修道院<br>
-                            <small>Monastery</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="build-E-Q-sengoku" value="E-Q">
+                        <label for="build-E-Q-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/buddhist-temple-3.png" alt="佛寺">
+                            佛寺<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="build-E-A" value="E-A">
                         <label for="build-E-A">
-                            <img src="https://data.aoe4world.com/images/buildings/siege-workshop-3.png" alt="攻城器械厂">
-                            攻城器械厂<br>
-                            <small>Siege Workshop</small>
+                            <img src="https://data.aoe4world.com/images/buildings/siege-workshop-3.png" alt="攻城武器厂">
+                            攻城武器厂<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="build-E-Z" value="E-Z">
                         <label for="build-E-Z">
-                            <img src="https://data.aoe4world.com/images/buildings/keep-3.png" alt="堡垒">
-                            堡垒<br>
-                            <small>Castle</small>
+                            <img src="https://data.aoe4world.com/images/buildings/keep-3.png" alt="城堡">
+                            城堡<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific chinese">
+                        <input type="checkbox" id="build-E-S" value="E-S">
+                        <label for="build-E-S">
+                            <img src="https://data.aoe4world.com/images/buildings/pagoda-1.png" alt="宝塔">
+                            宝塔<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific zhu">
+                        <input type="checkbox" id="build-E-S-zhu" value="E-S">
+                        <label for="build-E-S-zhu">
+                            <img src="https://data.aoe4world.com/images/buildings/pagoda-1.png" alt="宝塔">
+                            宝塔<br>
                         </label>
                     </div>
                 </div>
@@ -243,12 +679,25 @@
                         <label for="build-R-Q">
                             <img src="https://data.aoe4world.com/images/buildings/university-4.png" alt="大学">
                             大学<br>
-                            <small>University</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific japanese">
+                        <input type="checkbox" id="build-R-A" value="R-A">
+                        <label for="build-R-A">
+                            <img src="https://data.aoe4world.com/images/buildings/castle-4.png" alt="城堡">
+                            城堡<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="build-R-A-sengoku" value="R-A">
+                        <label for="build-R-A-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/castle-4.png" alt="城堡">
+                            城堡<br>
                         </label>
                     </div>
                 </div>
                 
-                <button id="confirm-selection-btn">选好了</button>
+                <button id="confirm-selection-btn">结束训练</button>
             </div>
             <div class="game-area">
                 <div class="target" id="target"></div>
@@ -265,16 +714,18 @@
                 
                 <h3>时代I 建筑 (按Q进入)</h3>
                 <ul>
-                    <li>Q - 房子</li>
+                    <li>Q - 房屋</li>
                     <li>S - 兵营</li>
                     <li>W - 磨坊</li>
                     <li>D - 码头</li>
                     <li>E - 伐木场</li>
                     <li>Z - 哨站</li>
                     <li>R - 采矿场</li>
-                    <li>X - 木栅栏墙</li>
-                    <li>A - 农田</li>
-                    <li>C - 木栅栏门</li>
+                    <li>X - 木栅栏</li>
+                    <li>A - 农田 (橄榄树林 - 拜占庭)</li>
+                    <li>F - 智慧宫 (黑衣大食, 阿尤布王朝) / 水池 (拜占庭) / 村庄 (中国) / 修道院 (德里苏丹)</li>
+                    <li>V - 水渠 (拜占庭)</li>
+                    <li>C - 木城门</li>
                 </ul>
                 
                 <h3>时代II 建筑 (按W进入)</h3>
@@ -282,18 +733,20 @@
                     <li>Q - 铁匠铺</li>
                     <li>S - 马厩</li>
                     <li>W - 市场</li>
-                    <li>Z - 石塔</li>
+                    <li>Z - 石墙塔</li>
                     <li>E - 城镇中心</li>
                     <li>X - 石墙</li>
-                    <li>A - 射手场</li>
-                    <li>C - 石门</li>
+                    <li>A - 靶场</li>
+                    <li>D - 雇佣兵之家 (拜占庭) / 谷仓 (中国) / 庄园 (兰开斯特王朝)</li>
+                    <li>C - 石墙城门</li>
                 </ul>
                 
                 <h3>时代III 建筑 (按E进入)</h3>
                 <ul>
                     <li>Q - 修道院</li>
-                    <li>A - 攻城器械厂</li>
-                    <li>Z - 堡垒</li>
+                    <li>A - 攻城武器厂</li>
+                    <li>Z - 城堡</li>
+                    <li>S - 宝塔 (中国)</li>
                 </ul>
                 
                 <h3>时代IV 建筑 (按R进入)</h3>
@@ -309,11 +762,6 @@
                 <button id="train-start-btn">开始训练</button>
                 <button id="train-pause-btn" disabled>暂停</button>
                 <button id="train-reset-btn" disabled>重置</button>
-                <select id="train-difficulty">
-                    <option value="easy">简单</option>
-                    <option value="medium">中等</option>
-                    <option value="hard">困难</option>
-                </select>
                 <div class="age-selection">
                     <label>选择时代：</label>
                     <input type="checkbox" id="train-age-Q" value="Q">
@@ -342,9 +790,15 @@
                     <div class="building-checkbox">
                         <input type="checkbox" id="train-build-Q-Q" value="Q-Q">
                         <label for="train-build-Q-Q">
-                            <img src="https://data.aoe4world.com/images/buildings/house-1.png" alt="房子">
-                            房子<br>
-                            <small>House</small>
+                            <img src="https://data.aoe4world.com/images/buildings/house-1.png" alt="房屋">
+                            房屋<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific japanese">
+                        <input type="checkbox" id="train-build-Q-Q-japanese" value="Q-Q">
+                        <label for="train-build-Q-Q-japanese">
+                            <img src="https://data.aoe4world.com/images/buildings/farmhouse-1.png" alt="农舍">
+                            农舍<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -352,7 +806,6 @@
                         <label for="train-build-Q-S">
                             <img src="https://data.aoe4world.com/images/buildings/barracks-1.png" alt="兵营">
                             兵营<br>
-                            <small>Barracks</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -360,7 +813,6 @@
                         <label for="train-build-Q-W">
                             <img src="https://data.aoe4world.com/images/buildings/mill-1.png" alt="磨坊">
                             磨坊<br>
-                            <small>Mill</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -368,15 +820,21 @@
                         <label for="train-build-Q-D">
                             <img src="https://data.aoe4world.com/images/buildings/dock-1.png" alt="码头">
                             码头<br>
-                            <small>Dock</small>
                         </label>
                     </div>
+                    <div class="building-checkbox civ-specific knights">
+                        <input type="checkbox" id="train-build-Q-D-knights" value="Q-D">
+                        <label for="train-build-Q-D-knights">
+                            <img src="https://data.aoe4world.com/images/buildings/dock-1.png" alt="巨港">
+                            巨港<br>
+                        </label>
+                    </div>
+
                     <div class="building-checkbox">
                         <input type="checkbox" id="train-build-Q-E" value="Q-E">
                         <label for="train-build-Q-E">
                             <img src="https://data.aoe4world.com/images/buildings/lumber-camp-1.png" alt="伐木场">
                             伐木场<br>
-                            <small>Lumber Camp</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -384,7 +842,6 @@
                         <label for="train-build-Q-Z">
                             <img src="https://data.aoe4world.com/images/buildings/outpost-1.png" alt="哨站">
                             哨站<br>
-                            <small>Outpost</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -392,15 +849,20 @@
                         <label for="train-build-Q-R">
                             <img src="https://data.aoe4world.com/images/buildings/mining-camp-1.png" alt="采矿场">
                             采矿场<br>
-                            <small>Mining Camp</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific japanese">
+                        <input type="checkbox" id="train-build-Q-R-japanese" value="Q-R">
+                        <label for="train-build-Q-R-japanese">
+                            <img src="https://data.aoe4world.com/images/buildings/forge-1.png" alt="锻造厂">
+                            锻造厂<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="train-build-Q-X" value="Q-X">
                         <label for="train-build-Q-X">
-                            <img src="https://data.aoe4world.com/images/buildings/palisade-1.png" alt="木栅栏墙">
-                            木栅栏墙<br>
-                            <small>Palisade</small>
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-1.png" alt="木栅栏">
+                            木栅栏<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -408,15 +870,230 @@
                         <label for="train-build-Q-A">
                             <img src="https://data.aoe4world.com/images/buildings/farm-1.png" alt="农田">
                             农田<br>
-                            <small>Farm</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific abbasid">
+                        <input type="checkbox" id="train-build-Q-F" value="Q-F">
+                        <label for="train-build-Q-F">
+                            <img src="https://data.aoe4world.com/images/buildings/house-of-wisdom-1.png" alt="智慧宫">
+                            智慧宫<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific ayyubid">
+                        <input type="checkbox" id="train-build-Q-F-ayyubid" value="Q-F">
+                        <label for="train-build-Q-F-ayyubid">
+                            <img src="https://data.aoe4world.com/images/buildings/house-of-wisdom-1.png" alt="智慧宫">
+                            智慧宫<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific byzantine">
+                        <input type="checkbox" id="train-build-Q-F-byzantine" value="Q-F">
+                        <label for="train-build-Q-F-byzantine">
+                            <img src="https://data.aoe4world.com/images/buildings/cistern-1.png" alt="水池">
+                            水池<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific byzantine">
+                        <input type="checkbox" id="train-build-Q-V" value="Q-V">
+                        <label for="train-build-Q-V">
+                            <img src="https://data.aoe4world.com/images/buildings/aqueduct-1.png" alt="水渠">
+                            水渠<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific byzantine">
+                        <input type="checkbox" id="train-build-Q-A-byzantine" value="Q-A">
+                        <label for="train-build-Q-A-byzantine">
+                            <img src="https://data.aoe4world.com/images/buildings/olive-grove-1.png" alt="橄榄树林">
+                            橄榄树林<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific chinese">
+                        <input type="checkbox" id="train-build-Q-F-chinese" value="Q-F">
+                        <label for="train-build-Q-F-chinese">
+                            <img src="https://data.aoe4world.com/images/buildings/village-1.png" alt="村庄">
+                            村庄<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific zhu">
+                        <input type="checkbox" id="train-build-Q-F-zhu" value="Q-F">
+                        <label for="train-build-Q-F-zhu">
+                            <img src="https://data.aoe4world.com/images/buildings/village-1.png" alt="村庄">
+                            村庄<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific delhi">
+                        <input type="checkbox" id="train-build-Q-F-delhi" value="Q-F">
+                        <label for="train-build-Q-F-delhi">
+                            <img src="https://data.aoe4world.com/images/buildings/monastery-3.png" alt="修道院">
+                            修道院<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="train-build-Q-C" value="Q-C">
                         <label for="train-build-Q-C">
-                            <img src="https://data.aoe4world.com/images/buildings/palisade-gate-1.png" alt="木栅栏门">
-                            木栅栏门<br>
-                            <small>Palisade Gate</small>
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-gate-1.png" alt="木城门">
+                            木城门<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="train-build-Q-Q-goldenhorde" value="Q-Q">
+                        <label for="train-build-Q-Q-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/relic-ovoo-1.png" alt="敖包">
+                            敖包<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="train-build-Q-W-goldenhorde" value="Q-W">
+                        <label for="train-build-Q-W-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/ger-1.png" alt="蒙古包">
+                            蒙古包<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="train-build-Q-Z-goldenhorde" value="Q-Z">
+                        <label for="train-build-Q-Z-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/fortified-outpost-1.png" alt="设防哨站">
+                            设防哨站<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="train-build-Q-A-goldenhorde" value="Q-A">
+                        <label for="train-build-Q-A-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/stockyard-1.png" alt="牲畜围栏">
+                            牲畜围栏<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="train-build-Q-F-goldenhorde" value="Q-F">
+                        <label for="train-build-Q-F-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/stable-1.png" alt="马厩">
+                            马厩<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific goldenhorde">
+                        <input type="checkbox" id="train-build-Q-V-goldenhorde" value="Q-V">
+                        <label for="train-build-Q-V-goldenhorde">
+                            <img src="https://data.aoe4world.com/images/buildings/golden-tent-2.png" alt="黄金帐篷">
+                            黄金帐篷<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific macedonian">
+                        <input type="checkbox" id="train-build-Q-F-macedonian" value="Q-F">
+                        <label for="train-build-Q-F-macedonian">
+                            <img src="https://data.aoe4world.com/images/buildings/varangian-warcamp-1.png" alt="瓦兰吉军营">
+                            瓦兰吉军营<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific macedonian">
+                        <input type="checkbox" id="train-build-Q-S-macedonian" value="Q-S">
+                        <label for="train-build-Q-S-macedonian">
+                            <img src="https://data.aoe4world.com/images/buildings/varangian-stronghold-1.png" alt="瓦兰吉城堡">
+                            瓦兰吉城堡<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific malians">
+                        <input type="checkbox" id="train-build-Q-F-malians" value="Q-F">
+                        <label for="train-build-Q-F-malians">
+                            <img src="https://data.aoe4world.com/images/buildings/pit-mine-1.png" alt="露天矿区">
+                            露天矿区<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific malians">
+                        <input type="checkbox" id="train-build-Q-Z-malians" value="Q-Z">
+                        <label for="train-build-Q-Z-malians">
+                            <img src="https://data.aoe4world.com/images/buildings/toll-outpost-1.png" alt="收费哨站">
+                            收费哨站<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific mongol">
+                        <input type="checkbox" id="train-build-Q-A-mongol" value="Q-A">
+                        <label for="train-build-Q-A-mongol">
+                            <img src="https://data.aoe4world.com/images/buildings/pasture-1.png" alt="牧场">
+                            牧场<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific mongol">
+                        <input type="checkbox" id="train-build-Q-Q-mongol" value="Q-Q">
+                        <label for="train-build-Q-Q-mongol">
+                            <img src="https://data.aoe4world.com/images/buildings/ovoo-1.png" alt="敖包">
+                            敖包<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific mongol">
+                        <input type="checkbox" id="train-build-Q-W-mongol" value="Q-W">
+                        <label for="train-build-Q-W-mongol">
+                            <img src="https://data.aoe4world.com/images/buildings/ger-1.png" alt="蒙古包">
+                            蒙古包<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific mongol">
+                        <input type="checkbox" id="train-build-Q-F-mongol" value="Q-F">
+                        <label for="train-build-Q-F-mongol">
+                            <img src="https://data.aoe4world.com/images/buildings/stable-1.png" alt="马厩">
+                            马厩<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific ottomans">
+                        <input type="checkbox" id="train-build-Q-F-ottomans" value="Q-F">
+                        <label for="train-build-Q-F-ottomans">
+                            <img src="https://data.aoe4world.com/images/buildings/military-school-1.png" alt="军事学校">
+                            军事学校<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific russian">
+                        <input type="checkbox" id="train-build-Q-W-russian" value="Q-W">
+                        <label for="train-build-Q-W-russian">
+                            <img src="https://data.aoe4world.com/images/buildings/hunting-cabin-1.png" alt="狩猎小屋">
+                            狩猎小屋<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific russian">
+                        <input type="checkbox" id="train-build-Q-Z-russian" value="Q-Z">
+                        <label for="train-build-Q-Z-russian">
+                            <img src="https://data.aoe4world.com/images/buildings/wooden-fortress-1.png" alt="木质要塞">
+                            木质要塞<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific russian">
+                        <input type="checkbox" id="train-build-Q-X-russian" value="Q-X">
+                        <label for="train-build-Q-X-russian">
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-1.png" alt="硬木栅栏">
+                            硬木栅栏<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific russian">
+                        <input type="checkbox" id="train-build-Q-C-russian" value="Q-C">
+                        <label for="train-build-Q-C-russian">
+                            <img src="https://data.aoe4world.com/images/buildings/palisade-gate-1.png" alt="强化木墙门">
+                            强化木墙门<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="train-build-Q-W-sengoku" value="Q-W">
+                        <label for="train-build-Q-W-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/matsuri-1.png" alt="祭典">
+                            祭典<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="train-build-Q-Q-sengoku" value="Q-Q">
+                        <label for="train-build-Q-Q-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/farmhouse-1.png" alt="农舍">
+                            农舍<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="train-build-Q-R-sengoku" value="Q-R">
+                        <label for="train-build-Q-R-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/forge-1.png" alt="锻造厂">
+                            锻造厂<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific tughlaq">
+                        <input type="checkbox" id="train-build-Q-W-tughlaq" value="Q-W">
+                        <label for="train-build-Q-W-tughlaq">
+                            <img src="https://data.aoe4world.com/images/units/worker-elephant-2.png" alt="工作大象">
+                            工作大象<br>
                         </label>
                     </div>
                 </div>
@@ -430,7 +1107,6 @@
                         <label for="train-build-W-Q">
                             <img src="https://data.aoe4world.com/images/buildings/blacksmith-2.png" alt="铁匠铺">
                             铁匠铺<br>
-                            <small>Blacksmith</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -438,7 +1114,6 @@
                         <label for="train-build-W-S">
                             <img src="https://data.aoe4world.com/images/buildings/stable-1.png" alt="马厩">
                             马厩<br>
-                            <small>Stable</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -446,15 +1121,13 @@
                         <label for="train-build-W-W">
                             <img src="https://data.aoe4world.com/images/buildings/market-2.png" alt="市场">
                             市场<br>
-                            <small>Market</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="train-build-W-Z" value="W-Z">
                         <label for="train-build-W-Z">
-                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-tower-2.png" alt="石塔">
-                            石塔<br>
-                            <small>Stone Tower</small>
+                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-tower-2.png" alt="石墙塔">
+                            石墙塔<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -462,7 +1135,6 @@
                         <label for="train-build-W-E">
                             <img src="https://data.aoe4world.com/images/buildings/town-center-1.png" alt="城镇中心">
                             城镇中心<br>
-                            <small>Town Center</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
@@ -470,23 +1142,97 @@
                         <label for="train-build-W-X">
                             <img src="https://data.aoe4world.com/images/buildings/stone-wall-2.png" alt="石墙">
                             石墙<br>
-                            <small>Stone Wall</small>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="train-build-W-A" value="W-A">
                         <label for="train-build-W-A">
-                            <img src="https://data.aoe4world.com/images/buildings/archery-range-2.png" alt="射手场">
-                            射手场<br>
-                            <small>Archery Range</small>
+                            <img src="https://data.aoe4world.com/images/buildings/archery-range-2.png" alt="靶场">
+                            靶场<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="train-build-W-C" value="W-C">
                         <label for="train-build-W-C">
-                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-gate-2.png" alt="石门">
-                            石门<br>
-                            <small>Stone Gate</small>
+                            <img src="https://data.aoe4world.com/images/buildings/stone-wall-gate-2.png" alt="石墙城门">
+                            石墙城门<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific byzantine">
+                        <input type="checkbox" id="train-build-W-D" value="W-D">
+                        <label for="train-build-W-D">
+                            <img src="https://data.aoe4world.com/images/buildings/mercenary-house-2.png" alt="雇佣兵之家">
+                            雇佣兵之家<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific chinese">
+                        <input type="checkbox" id="train-build-W-D-chinese" value="W-D">
+                        <label for="train-build-W-D-chinese">
+                            <img src="https://data.aoe4world.com/images/buildings/granary-1.png" alt="谷仓">
+                            谷仓<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific zhu">
+                        <input type="checkbox" id="train-build-W-D-zhu" value="W-D">
+                        <label for="train-build-W-D-zhu">
+                            <img src="https://data.aoe4world.com/images/buildings/granary-1.png" alt="谷仓">
+                            谷仓<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific lancaster">
+                        <input type="checkbox" id="train-build-W-D-lancaster" value="W-D">
+                        <label for="train-build-W-D-lancaster">
+                            <img src="https://data.aoe4world.com/images/buildings/manor-2.png" alt="庄园">
+                            庄园<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific knights">
+                        <input type="checkbox" id="train-build-W-D-knights" value="W-D">
+                        <label for="train-build-W-D-knights">
+                            <img src="https://data.aoe4world.com/images/buildings/fortress-2.png" alt="要塞">
+                            要塞<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific macedonian">
+                        <input type="checkbox" id="train-build-W-Q-macedonian" value="W-Q">
+                        <label for="train-build-W-Q-macedonian">
+                            <img src="https://data.aoe4world.com/images/buildings/varangian-arsenal-2.png" alt="瓦兰吉兵工厂">
+                            瓦兰吉兵工厂<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific malians">
+                        <input type="checkbox" id="train-build-W-D-malians" value="W-D">
+                        <label for="train-build-W-D-malians">
+                            <img src="https://data.aoe4world.com/images/buildings/cattle-ranch-2.png" alt="养牛场">
+                            养牛场<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific tughlaq">
+                        <input type="checkbox" id="train-build-W-D-tughlaq" value="W-D">
+                        <label for="train-build-W-D-tughlaq">
+                            <img src="https://data.aoe4world.com/images/buildings/tughlaqabad-fort-2.png" alt="腾格拉卡巴德城堡">
+                            腾格拉卡巴德城堡<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="train-build-W-V-sengoku" value="W-V">
+                        <label for="train-build-W-V-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/takeda-clan-daimyo-estate-2.png" alt="武田大名府邸">
+                            武田大名府邸<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="train-build-W-F-sengoku" value="W-F">
+                        <label for="train-build-W-F-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/oda-clan-daimyo-estate-2.png" alt="织田大名府邸">
+                            织田大名府邸<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="train-build-W-R-sengoku" value="W-R">
+                        <label for="train-build-W-R-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/hojo-clan-daimyo-estate-2.png" alt="北条大名府邸">
+                            北条大名府邸<br>
                         </label>
                     </div>
                 </div>
@@ -495,28 +1241,53 @@
                 <div class="age-buildings" id="train-age-E-buildings" style="display: none;">
                     <h4>时代III建筑</h4>
                     <button class="select-all-btn" data-age="train-E">全选</button>
+
                     <div class="building-checkbox">
                         <input type="checkbox" id="train-build-E-Q" value="E-Q">
                         <label for="train-build-E-Q">
-                            <img src="https://data.aoe4world.com/images/buildings/monastery-3.png" alt="修道院">
+                            <div class="monastery-images">
+                                <img src="https://data.aoe4world.com/images/buildings/monastery-3.png" alt="修道院" class="default-image">
+                                <div class="alternating-images" style="display: none;">
+                                    <img src="https://data.aoe4world.com/images/buildings/buddhist-temple-3.png" alt="佛教寺庙">
+                                    <img src="https://data.aoe4world.com/images/buildings/shinto-shrine-3.png" alt="神社">
+                                </div>
+                            </div>
                             修道院<br>
-                            <small>Monastery</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="train-build-E-Q-sengoku" value="E-Q">
+                        <label for="train-build-E-Q-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/buddhist-temple-3.png" alt="佛寺">
+                            佛寺<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="train-build-E-A" value="E-A">
                         <label for="train-build-E-A">
-                            <img src="https://data.aoe4world.com/images/buildings/siege-workshop-3.png" alt="攻城器械厂">
-                            攻城器械厂<br>
-                            <small>Siege Workshop</small>
+                            <img src="https://data.aoe4world.com/images/buildings/siege-workshop-3.png" alt="攻城武器厂">
+                            攻城武器厂<br>
                         </label>
                     </div>
                     <div class="building-checkbox">
                         <input type="checkbox" id="train-build-E-Z" value="E-Z">
                         <label for="train-build-E-Z">
-                            <img src="https://data.aoe4world.com/images/buildings/keep-3.png" alt="堡垒">
-                            堡垒<br>
-                            <small>Castle</small>
+                            <img src="https://data.aoe4world.com/images/buildings/keep-3.png" alt="城堡">
+                            城堡<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific chinese">
+                        <input type="checkbox" id="train-build-E-S" value="E-S">
+                        <label for="train-build-E-S">
+                            <img src="https://data.aoe4world.com/images/buildings/pagoda-1.png" alt="宝塔">
+                            宝塔<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific zhu">
+                        <input type="checkbox" id="train-build-E-S-zhu" value="E-S">
+                        <label for="train-build-E-S-zhu">
+                            <img src="https://data.aoe4world.com/images/buildings/pagoda-1.png" alt="宝塔">
+                            宝塔<br>
                         </label>
                     </div>
                 </div>
@@ -530,12 +1301,25 @@
                         <label for="train-build-R-Q">
                             <img src="https://data.aoe4world.com/images/buildings/university-4.png" alt="大学">
                             大学<br>
-                            <small>University</small>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific japanese">
+                        <input type="checkbox" id="train-build-R-A" value="R-A">
+                        <label for="train-build-R-A">
+                            <img src="https://data.aoe4world.com/images/buildings/castle-4.png" alt="城堡">
+                            城堡<br>
+                        </label>
+                    </div>
+                    <div class="building-checkbox civ-specific sengoku">
+                        <input type="checkbox" id="train-build-R-A-sengoku" value="R-A">
+                        <label for="train-build-R-A-sengoku">
+                            <img src="https://data.aoe4world.com/images/buildings/castle-4.png" alt="城堡">
+                            城堡<br>
                         </label>
                     </div>
                 </div>
                 
-                <button id="train-confirm-selection-btn">选好了</button>
+                <button id="train-confirm-selection-btn">结束训练</button>
             </div>
             <div class="game-area">
                 <div class="target" id="train-target"></div>
@@ -549,6 +1333,9 @@
             </div>
         </div>
     </div>
+    
+
+    
     <script src="script.js"></script>
 </body>
 </html>
