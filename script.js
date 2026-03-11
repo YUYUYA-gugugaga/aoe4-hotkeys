@@ -587,6 +587,21 @@ function resetGame() {
 
 // 事件监听器
 function setupEventListeners() {
+    // 页面加载时设置初始背景图片
+    function setInitialBackground() {
+        const initialBgUrl = 'https://www.ageofempires.com/wp-content/themes/ageOfEmpires/public/images/heros/age4-landinghero-desk.e1dec96816745ed2.webp';
+        let bgElement = document.querySelector('.civ-background');
+        if (!bgElement) {
+            bgElement = document.createElement('div');
+            bgElement.className = 'civ-background';
+            document.body.appendChild(bgElement);
+        }
+        bgElement.style.backgroundImage = `url(${initialBgUrl})`;
+    }
+    
+    // 调用设置初始背景图片的函数
+    setInitialBackground();
+    
     // 文明选择按钮点击事件
     civElements.civBtns.forEach(btn => {
         btn.addEventListener('click', function() {

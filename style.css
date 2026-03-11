@@ -4,6 +4,33 @@
     box-sizing: border-box;
 }
 
+/* 修复浏览器扩展注入的元素导致的空白问题 */
+.use-chat-gpt-ai--MuiStack-root {
+    font-size: initial !important;
+    background-color: transparent !important;
+    height: auto !important;
+    line-height: normal !important;
+}
+
+/* 修复页面空白问题 */
+html, body {
+    height: auto;
+    min-height: 0;
+}
+
+/* 临时添加背景色以识别元素 */
+.container {
+    background: transparent;
+}
+
+.mode-content {
+    background: transparent;
+}
+
+.civ-grid {
+    background: transparent;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #000000;
@@ -20,6 +47,9 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+}
+
+.mode-content {
 }
 
 h1 {
@@ -128,7 +158,7 @@ h1 {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.1;
+    opacity: 0.4;
     z-index: -1;
 }
 
@@ -471,4 +501,31 @@ button:disabled {
     .feedback {
         font-size: 18px;
     }
+}
+
+/* 防御性修复：针对常见 AI 助手扩展注入的元素，重置可能导致布局异常的样式 */
+div[class*="use-chat-gpt"],
+div[class*="use-chatgpt"],
+div[class*="chat-gpt"],
+div[class*="ChatGPT"],
+div[class*="maxai"],
+div[class*="MuiStack-root"],
+div[class*="context-menu"] {
+    /* 重置字体大小和行高（核心修复） */
+    font-size: 16px !important;
+    line-height: normal !important;
+    
+    /* 确保元素高度由内容正常决定 */
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    
+    /* 清除可能的外边距和内边距 */
+    margin: 0 !important;
+    padding: 0 !important;
+    
+    /* 可选：如果元素原本应该悬浮，但错误地占据了文档流，可以强制固定定位 */
+    /* 注意：取消下面两行的注释可能会改变扩展按钮的位置，但能彻底移出文档流 */
+    /* position: fixed !important; */
+    /* z-index: 9999 !important; */
 }
