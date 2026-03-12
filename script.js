@@ -10,7 +10,47 @@ const keyMappings = {
     'Q-R': '采矿场',
     'Q-X': '木栅栏',
     'Q-A': '农田',
+    'Q-A-byzantine': '橄榄树林', // 拜占庭
     'Q-C': '木城门',
+    'Q-F': '智慧宫', // 黑衣大食
+    'Q-F-byzantine': '水池', // 拜占庭
+    'Q-F-chinese': '村庄', // 中国
+    'Q-F-zhu': '村庄', // 朱子遗训
+    'Q-F-ayyubid': '智慧宫', // 阿尤布王朝
+    'Q-F-delhi': '修道院', // 德里苏丹
+    'Q-F-ottomans': '军事学校', // 奥斯曼
+    'Q-V': '水渠', // 拜占庭
+    'Q-A-mongol': '牧场', // 蒙古
+    'Q-Q-mongol': '敖包', // 蒙古
+    'Q-W-mongol': '蒙古包', // 蒙古
+    'Q-F-mongol': '马厩', // 蒙古
+    'Q-Q-goldenhorde': '敖包', // 金帐汗国
+    'Q-W-goldenhorde': '蒙古包', // 金帐汗国
+    'Q-Z-goldenhorde': '设防哨站', // 金帐汗国
+    'Q-A-goldenhorde': '牲畜围栏', // 金帐汗国
+    'Q-F-goldenhorde': '马厩', // 金帐汗国
+    'Q-V-goldenhorde': '黄金帐篷', // 金帐汗国
+    'Q-W-tughlaq': '工作大象', // 图格鲁克王朝
+    'W-D-tughlaq': '腾格拉卡巴德城堡', // 图格鲁克王朝
+    'Q-Q-japanese': '农舍', // 日本
+    'Q-R-japanese': '锻造厂', // 日本
+    'Q-Q-sengoku': '农舍', // 战国大名
+    'Q-W-sengoku': '祭典', // 战国大名
+    'Q-R-sengoku': '锻造厂', // 战国大名
+    'Q-W-russian': '狩猎小屋', // 罗斯
+    'Q-Z-russian': '木质要塞', // 罗斯
+    'Q-X-russian': '硬木栅栏', // 罗斯
+    'Q-C-russian': '强化木墙门', // 罗斯
+    'E-Q-sengoku': '佛寺', // 战国大名
+    'Q-F-malians': '露天矿区', // 马里
+    'Q-Z-malians': '收费哨站', // 马里
+    'W-D-malians': '养牛场', // 马里
+    'Q-F-macedonian': '瓦兰吉军营', // 马其顿王朝
+    'Q-S-macedonian': '瓦兰吉城堡', // 马其顿王朝
+    'W-Q-macedonian': '瓦兰吉兵工厂', // 马其顿王朝
+    'Q-D-knights': '巨港', // 圣殿骑士团
+    'W-D-knights': '要塞', // 圣殿骑士团
+    'W-D-lancaster': '庄园', // 兰开斯特王朝
     
     // 时代II 建筑 (按W进入)
     'W-Q': '铁匠铺',
@@ -21,14 +61,23 @@ const keyMappings = {
     'W-X': '石墙',
     'W-A': '靶场',
     'W-C': '石墙城门',
+    'W-D': '雇佣兵之家', // 拜占庭
+    'W-D-chinese': '谷仓', // 中国
+    'W-D-zhu': '谷仓', // 朱子遗训
+    'W-V': '武田大名府邸',
+    'W-F': '织田大名府邸',
+    'W-R': '北条大名府邸',
     
     // 时代III 建筑 (按E进入)
     'E-Q': '修道院',
     'E-A': '攻城武器厂',
     'E-Z': '城堡',
+    'E-S': '宝塔', // 中国
+    'E-S-zhu': '宝塔', // 朱子遗训
     
     // 时代IV 建筑 (按R进入)
-    'R-Q': '大学'
+    'R-Q': '大学',
+    'R-A': '城堡' // 日本
 };
 
 // 建筑图片URL映射
@@ -43,7 +92,47 @@ const buildingImages = {
     'Q-R': 'https://data.aoe4world.com/images/buildings/mining-camp-1.png',
     'Q-X': 'https://data.aoe4world.com/images/buildings/palisade-1.png',
     'Q-A': 'https://data.aoe4world.com/images/buildings/farm-1.png',
+    'Q-A-byzantine': 'https://data.aoe4world.com/images/buildings/olive-grove-1.png', // 橄榄树林（拜占庭）
     'Q-C': 'https://data.aoe4world.com/images/buildings/palisade-gate-1.png',
+    'Q-F': 'https://data.aoe4world.com/images/buildings/house-of-wisdom-1.png', // 智慧宫（黑衣大食、阿尤布王朝）
+    'Q-F-byzantine': 'https://data.aoe4world.com/images/buildings/cistern-1.png', // 水池（拜占庭）
+    'Q-F-chinese': 'https://data.aoe4world.com/images/buildings/village-1.png', // 村庄（中国）
+    'Q-F-zhu': 'https://data.aoe4world.com/images/buildings/village-1.png', // 村庄（朱子遗训）
+    'Q-F-ayyubid': 'https://data.aoe4world.com/images/buildings/house-of-wisdom-1.png', // 智慧宫（阿尤布王朝）
+    'Q-F-delhi': 'https://data.aoe4world.com/images/buildings/monastery-3.png', // 修道院（德里苏丹）
+    'Q-F-ottomans': 'https://data.aoe4world.com/images/buildings/military-school-1.png', // 军事学校（奥斯曼）
+    'Q-V': 'https://data.aoe4world.com/images/buildings/aqueduct-1.png', // 水渠（拜占庭）
+    'Q-A-mongol': 'https://data.aoe4world.com/images/buildings/pasture-1.png', // 牧场（蒙古）
+    'Q-Q-mongol': 'https://data.aoe4world.com/images/buildings/ovoo-1.png', // 敖包（蒙古）
+    'Q-W-mongol': 'https://data.aoe4world.com/images/buildings/ger-1.png', // 蒙古包（蒙古）
+    'Q-F-mongol': 'https://data.aoe4world.com/images/buildings/stable-1.png', // 马厩（蒙古）
+    'Q-Q-goldenhorde': 'https://data.aoe4world.com/images/buildings/relic-ovoo-1.png', // 敖包（金帐汗国）
+    'Q-W-goldenhorde': 'https://data.aoe4world.com/images/buildings/ger-1.png', // 蒙古包（金帐汗国）
+    'Q-Z-goldenhorde': 'https://data.aoe4world.com/images/buildings/fortified-outpost-1.png', // 设防哨站（金帐汗国）
+    'Q-A-goldenhorde': 'https://data.aoe4world.com/images/buildings/stockyard-1.png', // 牲畜围栏（金帐汗国）
+    'Q-F-goldenhorde': 'https://data.aoe4world.com/images/buildings/stable-1.png', // 马厩（金帐汗国）
+    'Q-V-goldenhorde': 'https://data.aoe4world.com/images/buildings/golden-tent-2.png', // 黄金帐篷（金帐汗国）
+    'Q-W-tughlaq': 'https://data.aoe4world.com/images/units/worker-elephant-2.png', // 工作大象（图格鲁克王朝）
+    'W-D-tughlaq': 'https://data.aoe4world.com/images/buildings/tughlaqabad-fort-2.png', // 腾格拉卡巴德城堡（图格鲁克王朝）
+    'Q-Q-japanese': 'https://data.aoe4world.com/images/buildings/farmhouse-1.png', // 农舍（日本）
+    'Q-R-japanese': 'https://data.aoe4world.com/images/buildings/forge-1.png', // 锻造厂（日本）
+    'Q-Q-sengoku': 'https://data.aoe4world.com/images/buildings/farmhouse-1.png', // 农舍（战国大名）
+    'Q-W-sengoku': 'https://data.aoe4world.com/images/buildings/matsuri-1.png', // 祭典（战国大名）
+    'Q-R-sengoku': 'https://data.aoe4world.com/images/buildings/forge-1.png', // 锻造厂（战国大名）
+    'Q-W-russian': 'https://data.aoe4world.com/images/buildings/hunting-cabin-1.png', // 狩猎小屋（罗斯）
+    'Q-Z-russian': 'https://data.aoe4world.com/images/buildings/wooden-fortress-1.png', // 木质要塞（罗斯）
+    'Q-X-russian': 'https://data.aoe4world.com/images/buildings/palisade-1.png', // 硬木栅栏（罗斯）
+    'Q-C-russian': 'https://data.aoe4world.com/images/buildings/palisade-gate-1.png', // 强化木墙门（罗斯）
+    'E-Q-sengoku': 'https://data.aoe4world.com/images/buildings/buddhist-temple-3.png', // 佛寺（战国大名）
+    'Q-F-malians': 'https://data.aoe4world.com/images/buildings/pit-mine-1.png', // 露天矿区（马里）
+    'Q-Z-malians': 'https://data.aoe4world.com/images/buildings/toll-outpost-1.png', // 收费哨站（马里）
+    'W-D-malians': 'https://data.aoe4world.com/images/buildings/cattle-ranch-2.png', // 养牛场（马里）
+    'Q-F-macedonian': 'https://data.aoe4world.com/images/buildings/varangian-warcamp-1.png', // 瓦兰吉军营（马其顿王朝）
+    'Q-S-macedonian': 'https://data.aoe4world.com/images/buildings/varangian-stronghold-1.png', // 瓦兰吉城堡（马其顿王朝）
+    'W-Q-macedonian': 'https://data.aoe4world.com/images/buildings/varangian-arsenal-2.png', // 瓦兰吉兵工厂（马其顿王朝）
+    'Q-D-knights': 'https://data.aoe4world.com/images/buildings/dock-1.png', // 巨港（圣殿骑士团）
+    'W-D-knights': 'https://data.aoe4world.com/images/buildings/fortress-2.png', // 要塞（圣殿骑士团）
+    'W-D-lancaster': 'https://data.aoe4world.com/images/buildings/manor-2.png', // 庄园（兰开斯特王朝）
     
     // 时代II 建筑
     'W-Q': 'https://data.aoe4world.com/images/buildings/blacksmith-2.png',
@@ -54,14 +143,23 @@ const buildingImages = {
     'W-X': 'https://data.aoe4world.com/images/buildings/stone-wall-2.png',
     'W-A': 'https://data.aoe4world.com/images/buildings/archery-range-2.png',
     'W-C': 'https://data.aoe4world.com/images/buildings/stone-wall-gate-2.png',
+    'W-D': 'https://data.aoe4world.com/images/buildings/mercenary-house-2.png', // 雇佣兵之家（拜占庭）
+    'W-D-chinese': 'https://data.aoe4world.com/images/buildings/granary-1.png', // 谷仓（中国）
+    'W-D-zhu': 'https://data.aoe4world.com/images/buildings/granary-1.png', // 谷仓（朱子遗训）
+    'W-V': 'https://data.aoe4world.com/images/buildings/takeda-clan-daimyo-estate-2.png',
+    'W-F': 'https://data.aoe4world.com/images/buildings/oda-clan-daimyo-estate-2.png',
+    'W-R': 'https://data.aoe4world.com/images/buildings/hojo-clan-daimyo-estate-2.png',
     
     // 时代III 建筑
-    'E-Q': 'https://data.aoe4world.com/images/buildings/monastery-3.png',
+    'E-Q': 'https://data.aoe4world.com/images/buildings/monastery-3.png', // 默认修道院
     'E-A': 'https://data.aoe4world.com/images/buildings/siege-workshop-3.png',
     'E-Z': 'https://data.aoe4world.com/images/buildings/keep-3.png',
+    'E-S': 'https://data.aoe4world.com/images/buildings/pagoda-1.png', // 宝塔（中国）
+    'E-S-zhu': 'https://data.aoe4world.com/images/buildings/pagoda-1.png', // 宝塔（朱子遗训）
     
     // 时代IV 建筑
-    'R-Q': 'https://data.aoe4world.com/images/buildings/university-4.png'
+    'R-Q': 'https://data.aoe4world.com/images/buildings/university-4.png',
+    'R-A': 'https://data.aoe4world.com/images/buildings/castle-4.png' // 城堡（日本）
 };
 
 // 游戏状态
@@ -123,27 +221,11 @@ function generateRandomKey() {
             }
         });
         
-        // 获取选中的时代
-        const selectedAges = [];
-        if (activeElements.ageQ.checked) selectedAges.push('Q');
-        if (activeElements.ageW.checked) selectedAges.push('W');
-        if (activeElements.ageE.checked) selectedAges.push('E');
-        if (activeElements.ageR.checked) selectedAges.push('R');
-        
-        // 过滤出选中时代的建筑
-        let filteredBuildings = visibleBuildings;
-        if (selectedAges.length > 0) {
-            filteredBuildings = visibleBuildings.filter(key => {
-                const age = key.split('-')[0];
-                return selectedAges.includes(age);
-            });
-        }
-        
         // 如果没有符合条件的建筑，返回默认建筑
-        if (filteredBuildings.length === 0) {
+        if (visibleBuildings.length === 0) {
             return Object.keys(keyMappings)[Math.floor(Math.random() * Object.keys(keyMappings).length)];
         } else {
-            return filteredBuildings[Math.floor(Math.random() * filteredBuildings.length)];
+            return visibleBuildings[Math.floor(Math.random() * visibleBuildings.length)];
         }
     } else {
         return selectedBuildings[Math.floor(Math.random() * selectedBuildings.length)];
@@ -213,7 +295,10 @@ function setupConfirmButtons() {
 // 更新目标显示
 function updateTarget() {
     gameState.currentKey = generateRandomKey();
-    const [ageKey, funcKey] = gameState.currentKey.split('-');
+    // 提取ageKey和funcKey，处理带有后缀的键值
+    const keyParts = gameState.currentKey.split('-');
+    const ageKey = keyParts[0];
+    const funcKey = keyParts[1]; // 忽略后缀部分
     gameState.currentAge = ageKey;
     gameState.currentWrongCount = 0; // 重置当前题目的连续错误次数
     
@@ -226,7 +311,7 @@ function updateTarget() {
     }
     
     // 获取建筑图片URL
-    const buildingImage = buildingImages[gameState.currentKey];
+    let buildingImage = buildingImages[gameState.currentKey];
     const buildingName = keyMappings[gameState.currentKey];
     
     // 检查是否为错题及错误次数
@@ -252,26 +337,69 @@ function updateTarget() {
     // 检查当前是学习模式还是训练模式
     const isLearnMode = modeElements.learnMode.style.display === 'block';
     
-    if (isLearnMode) {
-        // 学习模式：显示完整的快捷键提示和图片
-        activeElements.target.innerHTML = `
-            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; ${highlightStyle};">
-                <img src="${buildingImage}" alt="${buildingName}" style="width: 100px; height: 100px;">
-                <div style="text-align: left;">
-                    <div>${ageName} (${ageKey}) → ${funcKey}</div>
-                    <div style="font-size: 32px; font-weight: bold;">${buildingName}</div>
-                    ${warningText}
+    // 日本修道院图标闪烁效果
+    if (currentCiv === 'japanese' && gameState.currentKey === 'E-Q') {
+        if (isLearnMode) {
+            // 学习模式：显示完整的快捷键提示和闪烁图片
+            activeElements.target.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; gap: 20px; ${highlightStyle};">
+                    <div style="position: relative; width: 100px; height: 100px;">
+                        <img src="https://data.aoe4world.com/images/buildings/buddhist-temple-3.png" alt="佛教寺庙" style="position: absolute; width: 100px; height: 100px; animation: blink 2s infinite;">
+                        <img src="https://data.aoe4world.com/images/buildings/shinto-shrine-3.png" alt="神社" style="position: absolute; width: 100px; height: 100px; animation: blink 2s infinite reverse;">
+                    </div>
+                    <div style="text-align: left;">
+                        <div>${ageName} (${ageKey}) → ${funcKey}</div>
+                        <div style="font-size: 32px; font-weight: bold;">${buildingName}</div>
+                        ${warningText}
+                    </div>
                 </div>
-            </div>
-        `;
+                <style>
+                    @keyframes blink {
+                        0%, 100% { opacity: 1; }
+                        50% { opacity: 0; }
+                    }
+                </style>
+            `;
+        } else {
+            // 训练模式：只显示建筑名称和闪烁图片
+            activeElements.target.innerHTML = `
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; ${highlightStyle};">
+                    <div style="position: relative; width: 120px; height: 120px;">
+                        <img src="https://data.aoe4world.com/images/buildings/buddhist-temple-3.png" alt="佛教寺庙" style="position: absolute; width: 120px; height: 120px; animation: blink 2s infinite;">
+                        <img src="https://data.aoe4world.com/images/buildings/shinto-shrine-3.png" alt="神社" style="position: absolute; width: 120px; height: 120px; animation: blink 2s infinite reverse;">
+                    </div>
+                    <div style="font-size: 36px; font-weight: bold;">${buildingName}</div>
+                </div>
+                <style>
+                    @keyframes blink {
+                        0%, 100% { opacity: 1; }
+                        50% { opacity: 0; }
+                    }
+                </style>
+            `;
+        }
     } else {
-        // 训练模式：只显示建筑名称和图片
-        activeElements.target.innerHTML = `
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; ${highlightStyle};">
-                <img src="${buildingImage}" alt="${buildingName}" style="width: 120px; height: 120px;">
-                <div style="font-size: 36px; font-weight: bold;">${buildingName}</div>
-            </div>
-        `;
+        if (isLearnMode) {
+            // 学习模式：显示完整的快捷键提示和图片
+            activeElements.target.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; gap: 20px; ${highlightStyle};">
+                    <img src="${buildingImage}" alt="${buildingName}" style="width: 100px; height: 100px;">
+                    <div style="text-align: left;">
+                        <div>${ageName} (${ageKey}) → ${funcKey}</div>
+                        <div style="font-size: 32px; font-weight: bold;">${buildingName}</div>
+                        ${warningText}
+                    </div>
+                </div>
+            `;
+        } else {
+            // 训练模式：只显示建筑名称和图片
+            activeElements.target.innerHTML = `
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; ${highlightStyle};">
+                    <img src="${buildingImage}" alt="${buildingName}" style="width: 120px; height: 120px;">
+                    <div style="font-size: 36px; font-weight: bold;">${buildingName}</div>
+                </div>
+            `;
+        }
     }
 }
 
@@ -297,7 +425,10 @@ function handleKeyDown(e) {
             
             // 检查是否连错三次
             if (gameState.currentWrongCount >= 3) {
-                const [ageKey, funcKey] = gameState.currentKey.split('-');
+                // 提取ageKey和funcKey，处理带有后缀的键值
+                const keyParts = gameState.currentKey.split('-');
+                const ageKey = keyParts[0];
+                const funcKey = keyParts[1]; // 忽略后缀部分
                 activeElements.feedback.textContent = `正确按键：${ageKey} → ${funcKey}`;
                 activeElements.feedback.className = 'feedback wrong';
                 gameState.wrong++;
@@ -380,7 +511,10 @@ function handleKeyDown(e) {
         // 第二次按键（功能键）
         const fullKey = `${gameState.firstKey}-${pressedKey}`;
         
-        if (fullKey === gameState.currentKey) {
+        // 检查fullKey是否与currentKey匹配，或是否是currentKey的前缀（处理带有后缀的键值，如Q-F-byzantine）
+        const isMatch = fullKey === gameState.currentKey || gameState.currentKey.startsWith(`${fullKey}-`);
+        
+        if (isMatch) {
             activeElements.feedback.textContent = '完全正确!';
             activeElements.feedback.className = 'feedback correct';
             gameState.correct++;
@@ -413,7 +547,10 @@ function handleKeyDown(e) {
             
             // 检查是否连错三次
             if (gameState.currentWrongCount >= 3) {
-                const [ageKey, funcKey] = gameState.currentKey.split('-');
+                // 提取ageKey和funcKey，处理带有后缀的键值
+                const keyParts = gameState.currentKey.split('-');
+                const ageKey = keyParts[0];
+                const funcKey = keyParts[1]; // 忽略后缀部分
                 activeElements.feedback.textContent = `正确按键：${ageKey} → ${funcKey}`;
                 activeElements.feedback.className = 'feedback wrong';
                 gameState.wrong++;
@@ -518,10 +655,6 @@ function startGame() {
     activeElements.startBtn.disabled = true;
     activeElements.pauseBtn.disabled = false;
     activeElements.resetBtn.disabled = false;
-    activeElements.ageQ.disabled = true;
-    activeElements.ageW.disabled = true;
-    activeElements.ageE.disabled = true;
-    activeElements.ageR.disabled = true;
     activeElements.trainingCount.disabled = true;
     
     // 更新训练次数显示
@@ -543,10 +676,6 @@ function pauseGame() {
     activeElements.startBtn.disabled = false;
     activeElements.pauseBtn.disabled = true;
     activeElements.resetBtn.disabled = false;
-    activeElements.ageQ.disabled = false;
-    activeElements.ageW.disabled = false;
-    activeElements.ageE.disabled = false;
-    activeElements.ageR.disabled = false;
     activeElements.trainingCount.disabled = false;
     
     clearInterval(gameState.timer);
@@ -571,10 +700,6 @@ function resetGame() {
     activeElements.startBtn.disabled = false;
     activeElements.pauseBtn.disabled = true;
     activeElements.resetBtn.disabled = true;
-    activeElements.ageQ.disabled = false;
-    activeElements.ageW.disabled = false;
-    activeElements.ageE.disabled = false;
-    activeElements.ageR.disabled = false;
     activeElements.trainingCount.disabled = false;
     
     activeElements.target.textContent = '';
@@ -629,13 +754,13 @@ function setupEventListeners() {
     
     // 更新文明特定建筑的显示状态
     function updateCivSpecificBuildings() {
-        // 先隐藏所有建筑
+        // 1. 先隐藏所有建筑
         document.querySelectorAll('.building-checkbox').forEach(el => {
             el.style.display = 'none';
         });
         
-        // 显示所有默认建筑（不包括带有civ-specific类的建筑）
-        const defaultBuildings = [
+        // 2. 显示所有默认建筑（不包括带有civ-specific类的建筑）
+        let defaultBuildings = [
             '#build-Q-Q', '#build-Q-W', '#build-Q-E', '#build-Q-R', '#build-Q-A', '#build-Q-S', '#build-Q-D', '#build-Q-Z', '#build-Q-X', '#build-Q-C',
             '#build-W-Q', '#build-W-S', '#build-W-W', '#build-W-Z', '#build-W-E', '#build-W-X', '#build-W-A', '#build-W-C',
             '#build-E-Q', '#build-E-A', '#build-E-Z',
@@ -650,7 +775,7 @@ function setupEventListeners() {
             const element = document.querySelector(selector);
             if (element) {
                 const buildingCheckbox = element.closest('.building-checkbox');
-                if (buildingCheckbox) {
+                if (buildingCheckbox && !buildingCheckbox.classList.contains('civ-specific')) {
                     buildingCheckbox.style.display = 'inline-block';
                 }
             }
@@ -707,143 +832,103 @@ function setupEventListeners() {
             }
         });
         
-        // 根据当前选择的文明显示对应的建筑
+        // 3. 隐藏所有文明特定建筑
+        document.querySelectorAll('.civ-specific').forEach(el => {
+            el.style.display = 'none';
+        });
+        
+        // 4. 根据当前选择的文明隐藏需要隐藏的建筑
         if (currentCiv) {
-            // 显示当前文明的特定建筑
-            document.querySelectorAll(`.civ-specific.${currentCiv}`).forEach(el => {
-                el.style.display = 'inline-block';
-            });
-            
-            // 为阿尤布王朝也显示智慧宫
-            if (currentCiv === 'ayyubid') {
-                document.querySelectorAll('.civ-specific.ayyubid').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
-            }
-            
-            // 隐藏其他文明的特定建筑
-            document.querySelectorAll('.civ-specific').forEach(el => {
-                if (!el.classList.contains(currentCiv)) {
-                    el.style.display = 'none';
-                }
-            });
-            
-            // 为拜占庭显示特殊建筑
+            // 为拜占庭隐藏需要的建筑
             if (currentCiv === 'byzantine') {
-                document.querySelectorAll('.civ-specific.byzantine').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
                 // 隐藏拜占庭的农田
-                document.querySelector('#build-Q-A').closest('.building-checkbox').style.display = 'none';
-                document.querySelector('#train-build-Q-A').closest('.building-checkbox').style.display = 'none';
-            }
-            
-            // 为中国显示特殊建筑
-            if (currentCiv === 'chinese') {
-                document.querySelectorAll('.civ-specific.chinese').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
-            } else if (currentCiv === 'zhu') {
-                // 为朱子遗训显示特殊建筑
-                document.querySelectorAll('.civ-specific.zhu').forEach(el => {
-                    el.style.display = 'inline-block';
+                document.querySelectorAll('[id^="build-Q-A"], [id^="train-build-Q-A"]').forEach(element => {
+                    const buildingCheckbox = element.closest('.building-checkbox');
+                    if (buildingCheckbox) {
+                        buildingCheckbox.style.display = 'none';
+                    }
                 });
             }
             
-            // 为兰开斯特王朝显示特殊建筑
-            if (currentCiv === 'lancaster') {
-                document.querySelectorAll('.civ-specific.lancaster').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
-            }
-            
-            // 为圣殿骑士团显示特殊建筑
+            // 为圣殿骑士团隐藏需要的建筑
             if (currentCiv === 'knights') {
-                document.querySelectorAll('.civ-specific.knights').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
                 // 隐藏圣殿骑士团的码头、堡垒和伐木场
                 const knightsBuildings = [
-                    '#build-Q-D', '#build-Q-E', '#build-E-Z',
-                    '#train-build-Q-D', '#train-build-Q-E', '#train-build-E-Z'
+                    'build-Q-D', 'build-Q-E', 'build-E-Z',
+                    'train-build-Q-D', 'train-build-Q-E', 'train-build-E-Z'
                 ];
                 
-                knightsBuildings.forEach(selector => {
-                    const element = document.querySelector(selector);
-                    if (element) {
+                knightsBuildings.forEach(prefix => {
+                    document.querySelectorAll('[id^="' + prefix + '"]').forEach(element => {
                         const buildingCheckbox = element.closest('.building-checkbox');
                         if (buildingCheckbox) {
                             buildingCheckbox.style.display = 'none';
                         }
-                    }
+                    });
                 });
             }
             
-            // 为马其顿王朝显示特殊建筑
+            // 为马其顿王朝隐藏需要的建筑
             if (currentCiv === 'macedonian') {
-                document.querySelectorAll('.civ-specific.macedonian').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
                 // 隐藏马其顿王朝的兵营、铁匠铺和大学
                 const macedonianBuildings = [
-                    '#build-Q-S', '#build-W-Q', '#build-R-Q',
-                    '#train-build-Q-S', '#train-build-W-Q', '#train-build-R-Q'
+                    'build-Q-S', 'build-W-Q', 'build-R-Q',
+                    'train-build-Q-S', 'train-build-W-Q', 'train-build-R-Q'
                 ];
                 
-                macedonianBuildings.forEach(selector => {
-                    const element = document.querySelector(selector);
-                    if (element) {
+                macedonianBuildings.forEach(prefix => {
+                    document.querySelectorAll('[id^="' + prefix + '"]').forEach(element => {
                         const buildingCheckbox = element.closest('.building-checkbox');
                         if (buildingCheckbox) {
                             buildingCheckbox.style.display = 'none';
                         }
-                    }
+                    });
                 });
             }
             
-            // 为马里显示特殊建筑
+            // 为马里隐藏需要的建筑
             if (currentCiv === 'malians') {
-                document.querySelectorAll('.civ-specific.malians').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
                 // 隐藏马里的哨站
                 const maliansBuildings = [
-                    '#build-Q-Z',
-                    '#train-build-Q-Z'
+                    'build-Q-Z',
+                    'train-build-Q-Z'
                 ];
                 
-                maliansBuildings.forEach(selector => {
-                    const element = document.querySelector(selector);
-                    if (element) {
+                maliansBuildings.forEach(prefix => {
+                    document.querySelectorAll('[id^="' + prefix + '"]').forEach(element => {
                         const buildingCheckbox = element.closest('.building-checkbox');
                         if (buildingCheckbox) {
                             buildingCheckbox.style.display = 'none';
                         }
-                    }
+                    });
                 });
             }
             
-            // 为蒙古显示特殊建筑
+            // 为蒙古隐藏需要的建筑
             if (currentCiv === 'mongol') {
-                document.querySelectorAll('.civ-specific.mongol').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
-                // 隐藏蒙古的房子、磨坊、伐木场、采矿场、农田、石塔、石墙、石门、堡垒、大学、木栅栏墙和木栅栏门
+                // 隐藏蒙古的房子、磨坊、伐木场、采矿场、农田、石塔、石墙、石门、堡垒、大学、木栅栏墙、木栅栏门、市场和智慧宫
                 const mongolBuildings = [
-                    '#build-Q-Q', '#build-Q-W', '#build-Q-E', '#build-Q-R', '#build-Q-A',
-                    '#build-W-Z', '#build-W-X', '#build-W-C', '#build-E-Z', '#build-R-Q', '#build-Q-X', '#build-Q-C',
-                    '#train-build-Q-Q', '#train-build-Q-W', '#train-build-Q-E', '#train-build-Q-R', '#train-build-Q-A',
-                    '#train-build-W-Z', '#train-build-W-X', '#train-build-W-C', '#train-build-E-Z', '#train-build-R-Q', '#train-build-Q-X', '#train-build-Q-C'
+                    'Q-Q', 'Q-W', 'Q-E', 'Q-R', 'Q-A', 'Q-F',
+                    'W-Z', 'W-X', 'W-C', 'W-W', 'E-Z', 'R-Q', 'Q-X', 'Q-C'
                 ];
                 
-                mongolBuildings.forEach(selector => {
-                    const element = document.querySelector(selector);
-                    if (element) {
+                // 隐藏学习模式和训练模式的建筑
+                mongolBuildings.forEach(key => {
+                    // 学习模式建筑
+                    document.querySelectorAll('[id^="build-' + key + '"]').forEach(element => {
                         const buildingCheckbox = element.closest('.building-checkbox');
                         if (buildingCheckbox) {
                             buildingCheckbox.style.display = 'none';
                         }
-                    }
+                    });
+                    
+                    // 训练模式建筑
+                    document.querySelectorAll('[id^="train-build-' + key + '"]').forEach(element => {
+                        const buildingCheckbox = element.closest('.building-checkbox');
+                        if (buildingCheckbox) {
+                            buildingCheckbox.style.display = 'none';
+                        }
+                    });
                 });
                 
                 // 隐藏蒙古的第四时代
@@ -874,71 +959,47 @@ function setupEventListeners() {
                 }
                 
                 // 隐藏蒙古的马厩（从时代II移到时代I）
-                const buildWS = document.querySelector('#build-W-S');
-                if (buildWS) {
-                    const buildingCheckbox = buildWS.closest('.building-checkbox');
+                document.querySelectorAll('[id^="build-W-S"], [id^="train-build-W-S"]').forEach(element => {
+                    const buildingCheckbox = element.closest('.building-checkbox');
                     if (buildingCheckbox) {
                         buildingCheckbox.style.display = 'none';
                     }
-                }
-                
-                const trainBuildWS = document.querySelector('#train-build-W-S');
-                if (trainBuildWS) {
-                    const buildingCheckbox = trainBuildWS.closest('.building-checkbox');
-                    if (buildingCheckbox) {
-                        buildingCheckbox.style.display = 'none';
-                    }
-                }
-            }
-            
-            // 为奥斯曼显示特殊建筑
-            if (currentCiv === 'ottomans') {
-                document.querySelectorAll('.civ-specific.ottomans').forEach(el => {
-                    el.style.display = 'inline-block';
                 });
             }
             
-            // 为罗斯显示特殊建筑
+            // 为罗斯隐藏需要的建筑
             if (currentCiv === 'russian') {
-                document.querySelectorAll('.civ-specific.russian').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
                 // 隐藏罗斯的磨坊、哨站、木栅栏墙和木栅栏门
                 const russianBuildings = [
-                    '#build-Q-W', '#build-Q-Z', '#build-Q-X', '#build-Q-C',
-                    '#train-build-Q-W', '#train-build-Q-Z', '#train-build-Q-X', '#train-build-Q-C'
+                    'build-Q-W', 'build-Q-Z', 'build-Q-X', 'build-Q-C',
+                    'train-build-Q-W', 'train-build-Q-Z', 'train-build-Q-X', 'train-build-Q-C'
                 ];
                 
-                russianBuildings.forEach(selector => {
-                    const element = document.querySelector(selector);
-                    if (element) {
+                russianBuildings.forEach(prefix => {
+                    document.querySelectorAll('[id^="' + prefix + '"]').forEach(element => {
                         const buildingCheckbox = element.closest('.building-checkbox');
                         if (buildingCheckbox) {
                             buildingCheckbox.style.display = 'none';
                         }
-                    }
+                    });
                 });
             }
             
-            // 为日本显示特殊建筑并隐藏一些默认建筑
+            // 为日本隐藏需要的建筑
             if (currentCiv === 'japanese') {
-                document.querySelectorAll('.civ-specific.japanese').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
                 // 隐藏日本的房子、磨坊、采矿场、铁匠铺、堡垒
                 const japaneseBuildings = [
-                    '#build-Q-Q', '#build-Q-W', '#build-Q-R', '#build-W-Q', '#build-E-Z',
-                    '#train-build-Q-Q', '#train-build-Q-W', '#train-build-Q-R', '#train-build-W-Q', '#train-build-E-Z'
+                    'build-Q-Q', 'build-Q-W', 'build-Q-R', 'build-W-Q', 'build-E-Z',
+                    'train-build-Q-Q', 'train-build-Q-W', 'train-build-Q-R', 'train-build-W-Q', 'train-build-E-Z'
                 ];
                 
-                japaneseBuildings.forEach(selector => {
-                    const element = document.querySelector(selector);
-                    if (element) {
+                japaneseBuildings.forEach(prefix => {
+                    document.querySelectorAll('[id^="' + prefix + '"]').forEach(element => {
                         const buildingCheckbox = element.closest('.building-checkbox');
                         if (buildingCheckbox) {
                             buildingCheckbox.style.display = 'none';
                         }
-                    }
+                    });
                 });
                 // 为日本显示交替的修道院图标
                 document.querySelectorAll('.monastery-images').forEach(el => {
@@ -953,71 +1014,59 @@ function setupEventListeners() {
                 });
             }
             
-            // 为战国大名显示特殊建筑
+            // 为战国大名隐藏需要的建筑
             if (currentCiv === 'sengoku') {
-                document.querySelectorAll('.civ-specific.sengoku').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
-                // 隐藏战国大名的房子、磨坊、采矿场、铁匠铺、堡垒、修道院
+                // 隐藏战国大名的房屋、磨坊、采矿场、市场、时代三城堡和修道院
                 const sengokuBuildings = [
-                    '#build-Q-Q', '#build-Q-W', '#build-Q-R', '#build-W-Q', '#build-E-Z', '#build-E-Q',
-                    '#train-build-Q-Q', '#train-build-Q-W', '#train-build-Q-R', '#train-build-W-Q', '#train-build-E-Z', '#train-build-E-Q'
+                    'build-Q-Q', 'build-Q-W', 'build-Q-R', 'build-W-W', 'build-E-Z', 'build-E-Q',
+                    'train-build-Q-Q', 'train-build-Q-W', 'train-build-Q-R', 'train-build-W-W', 'train-build-E-Z', 'train-build-E-Q'
                 ];
                 
-                sengokuBuildings.forEach(selector => {
-                    const element = document.querySelector(selector);
-                    if (element) {
+                sengokuBuildings.forEach(prefix => {
+                    document.querySelectorAll('[id^="' + prefix + '"]').forEach(element => {
                         const buildingCheckbox = element.closest('.building-checkbox');
                         if (buildingCheckbox) {
                             buildingCheckbox.style.display = 'none';
                         }
-                    }
+                    });
                 });
             }
             
-            // 为图格鲁克王朝显示特殊建筑
+            // 为图格鲁克王朝隐藏需要的建筑
             if (currentCiv === 'tughlaq') {
-                document.querySelectorAll('.civ-specific.tughlaq').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
                 // 隐藏图格鲁克的磨坊、伐木场、采矿场和堡垒
                 const tughlaqBuildings = [
-                    '#build-Q-W', '#build-Q-E', '#build-Q-R', '#build-E-Z',
-                    '#train-build-Q-W', '#train-build-Q-E', '#train-build-Q-R', '#train-build-E-Z'
+                    'build-Q-W', 'build-Q-E', 'build-Q-R', 'build-E-Z',
+                    'train-build-Q-W', 'train-build-Q-E', 'train-build-Q-R', 'train-build-E-Z'
                 ];
                 
-                tughlaqBuildings.forEach(selector => {
-                    const element = document.querySelector(selector);
-                    if (element) {
+                tughlaqBuildings.forEach(prefix => {
+                    document.querySelectorAll('[id^="' + prefix + '"]').forEach(element => {
                         const buildingCheckbox = element.closest('.building-checkbox');
                         if (buildingCheckbox) {
                             buildingCheckbox.style.display = 'none';
                         }
-                    }
+                    });
                 });
             }
             
-            // 为金帐汗国显示特殊建筑
+            // 为金帐汗国隐藏需要的建筑
             if (currentCiv === 'goldenhorde') {
-                document.querySelectorAll('.civ-specific.goldenhorde').forEach(el => {
-                    el.style.display = 'inline-block';
-                });
                 // 隐藏金帐汗国的默认建筑
                 const goldenHordeBuildings = [
-                    '#build-Q-Q', '#build-Q-W', '#build-Q-E', '#build-Q-R', '#build-Q-A',
-                    '#build-W-Z', '#build-W-X', '#build-W-C', '#build-E-Z', '#build-R-Q', '#build-Q-Z',
-                    '#train-build-Q-Q', '#train-build-Q-W', '#train-build-Q-E', '#train-build-Q-R', '#train-build-Q-A',
-                    '#train-build-W-Z', '#train-build-W-X', '#train-build-W-C', '#train-build-E-Z', '#train-build-R-Q', '#train-build-Q-Z'
+                    'build-Q-Q', 'build-Q-W', 'build-Q-E', 'build-Q-R', 'build-Q-A',
+                    'build-W-Z', 'build-W-X', 'build-W-C', 'build-E-Z', 'build-R-Q', 'build-Q-Z',
+                    'train-build-Q-Q', 'train-build-Q-W', 'train-build-Q-E', 'train-build-Q-R', 'train-build-Q-A',
+                    'train-build-W-Z', 'train-build-W-X', 'train-build-W-C', 'train-build-E-Z', 'train-build-R-Q', 'train-build-Q-Z'
                 ];
                 
-                goldenHordeBuildings.forEach(selector => {
-                    const element = document.querySelector(selector);
-                    if (element) {
+                goldenHordeBuildings.forEach(prefix => {
+                    document.querySelectorAll('[id^="' + prefix + '"]').forEach(element => {
                         const buildingCheckbox = element.closest('.building-checkbox');
                         if (buildingCheckbox) {
                             buildingCheckbox.style.display = 'none';
                         }
-                    }
+                    });
                 });
                 
                 // 隐藏金帐汗国的第四时代
@@ -1048,31 +1097,35 @@ function setupEventListeners() {
                 }
                 
                 // 隐藏金帐汗国的马厩（从时代II移到时代I）
-                const buildWS = document.querySelector('#build-W-S');
-                if (buildWS) {
-                    const buildingCheckbox = buildWS.closest('.building-checkbox');
+                document.querySelectorAll('[id^="build-W-S"], [id^="train-build-W-S"]').forEach(element => {
+                    const buildingCheckbox = element.closest('.building-checkbox');
                     if (buildingCheckbox) {
                         buildingCheckbox.style.display = 'none';
                     }
-                }
-                
-                const trainBuildWS = document.querySelector('#train-build-W-S');
-                if (trainBuildWS) {
-                    const buildingCheckbox = trainBuildWS.closest('.building-checkbox');
-                    if (buildingCheckbox) {
-                        buildingCheckbox.style.display = 'none';
-                    }
-                }
+                });
             }
             
-            // 为德里苏丹显示特殊建筑
+            // 为德里苏丹隐藏需要的建筑
             if (currentCiv === 'delhi') {
-                document.querySelectorAll('.civ-specific.delhi').forEach(el => {
+                // 隐藏德里苏丹的时代III修道院
+                document.querySelectorAll('[id^="build-E-Q"], [id^="train-build-E-Q"]').forEach(element => {
+                    const buildingCheckbox = element.closest('.building-checkbox');
+                    if (buildingCheckbox) {
+                        buildingCheckbox.style.display = 'none';
+                    }
+                });
+            }
+            
+            // 5. 显示当前文明的特定建筑
+            document.querySelectorAll(`.civ-specific.${currentCiv}`).forEach(el => {
+                el.style.display = 'inline-block';
+            });
+            
+            // 特殊处理：阿尤布王朝也显示智慧宫
+            if (currentCiv === 'ayyubid') {
+                document.querySelectorAll('.civ-specific.ayyubid').forEach(el => {
                     el.style.display = 'inline-block';
                 });
-                // 隐藏德里苏丹的时代III修道院
-                document.querySelector('#build-E-Q').closest('.building-checkbox').style.display = 'none';
-                document.querySelector('#train-build-E-Q').closest('.building-checkbox').style.display = 'none';
             }
         }
     }
@@ -1131,22 +1184,7 @@ function setupEventListeners() {
     trainElements.pauseBtn.addEventListener('click', pauseGame);
     trainElements.resetBtn.addEventListener('click', resetGame);
     
-    // 训练模式时代选择事件
-    document.getElementById('train-age-Q').addEventListener('change', function() {
-        document.getElementById('train-age-Q-buildings').style.display = this.checked ? 'block' : 'none';
-    });
-    
-    document.getElementById('train-age-W').addEventListener('change', function() {
-        document.getElementById('train-age-W-buildings').style.display = this.checked ? 'block' : 'none';
-    });
-    
-    document.getElementById('train-age-E').addEventListener('change', function() {
-        document.getElementById('train-age-E-buildings').style.display = this.checked ? 'block' : 'none';
-    });
-    
-    document.getElementById('train-age-R').addEventListener('change', function() {
-        document.getElementById('train-age-R-buildings').style.display = this.checked ? 'block' : 'none';
-    });
+
     
     // 键盘事件
     document.addEventListener('keydown', handleKeyDown);
@@ -1241,10 +1279,6 @@ function init() {
         startBtn: document.getElementById('start-btn'),
         pauseBtn: document.getElementById('pause-btn'),
         resetBtn: document.getElementById('reset-btn'),
-        ageQ: document.getElementById('age-Q'),
-        ageW: document.getElementById('age-W'),
-        ageE: document.getElementById('age-E'),
-        ageR: document.getElementById('age-R'),
         trainingCount: document.getElementById('training-count'),
         target: document.getElementById('target'),
         feedback: document.getElementById('feedback'),
@@ -1260,10 +1294,6 @@ function init() {
         startBtn: document.getElementById('train-start-btn'),
         pauseBtn: document.getElementById('train-pause-btn'),
         resetBtn: document.getElementById('train-reset-btn'),
-        ageQ: document.getElementById('train-age-Q'),
-        ageW: document.getElementById('train-age-W'),
-        ageE: document.getElementById('train-age-E'),
-        ageR: document.getElementById('train-age-R'),
         trainingCount: document.getElementById('train-training-count'),
         target: document.getElementById('train-target'),
         feedback: document.getElementById('train-feedback'),
