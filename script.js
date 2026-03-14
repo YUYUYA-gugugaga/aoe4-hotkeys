@@ -342,7 +342,9 @@ function setupConfirmButtons() {
 
 // 更新目标显示
 function updateTarget() {
+    // 生成随机快捷键
     gameState.currentKey = generateRandomKey();
+    
     // 提取ageKey和funcKey，处理带有后缀的键值
     const keyParts = gameState.currentKey.split('-');
     const ageKey = keyParts[0];
@@ -350,28 +352,29 @@ function updateTarget() {
     gameState.currentAge = ageKey;
     gameState.currentWrongCount = 0; // 重置当前题目的连续错误次数
     
-    let ageName = '';
-    switch(ageKey) {
-        case 'Q': ageName = '时代I'; break;
-        case 'W': ageName = '时代II'; break;
-        case 'E': ageName = '时代III'; break;
-        case 'R': ageName = '时代IV'; break;
-    }
+    // 获取时代名称
+    const ageNames = {
+        'Q': '时代I',
+        'W': '时代II',
+        'E': '时代III',
+        'R': '时代IV'
+    };
+    const ageName = ageNames[ageKey] || '';
     
-    // 获取建筑图片URL
-    let buildingImage = buildingImages[gameState.currentKey];
-    const buildingName = keyMappings[gameState.currentKey];
+    // 获取建筑信息
+    const buildingImage = buildingImages[gameState.currentKey] || '';
+    const buildingName = keyMappings[gameState.currentKey] || '';
     
-    // 检查是否为错题及错误次数
+    // 快速计算错误次数
     let wrongCount = 0;
-    // 遍历所有训练会话，累计错误次数
-    gameState.wrongAnswers.forEach(session => {
+    for (let i = 0; i < gameState.wrongAnswers.length; i++) {
+        const session = gameState.wrongAnswers[i];
         if (session.errors[gameState.currentKey]) {
             wrongCount += session.errors[gameState.currentKey].count;
         }
-    });
+    }
     
-    // 根据错误次数确定高亮样式
+    // 生成高亮样式
     let highlightStyle = '';
     let warningText = '';
     if (wrongCount > 2) {
@@ -382,14 +385,16 @@ function updateTarget() {
         warningText = `<div style="color: #ffaa00; font-weight: bold; margin-top: 8px;">⚠️ 注意</div>`;
     }
     
-    // 检查当前是学习模式还是训练模式
+    // 检查当前模式
     const isLearnMode = modeElements.learnMode.style.display === 'block';
     
-    // 日本修道院图标闪烁效果
+    // 快速生成HTML
+    let targetHTML = '';
+    
+    // 日本修道院特殊处理
     if (currentCiv === 'japanese' && gameState.currentKey === 'E-Q') {
         if (isLearnMode) {
-            // 学习模式：显示完整的快捷键提示和闪烁图片
-            activeElements.target.innerHTML = `
+            targetHTML = `
                 <div style="display: flex; align-items: center; justify-content: center; gap: 20px; ${highlightStyle};">
                     <div style="position: relative; width: 100px; height: 100px;">
                         <img src="https://data.aoe4world.com/images/buildings/buddhist-temple-3.png" alt="佛教寺庙" style="position: absolute; width: 100px; height: 100px; animation: blink 2s infinite;">
@@ -409,8 +414,7 @@ function updateTarget() {
                 </style>
             `;
         } else {
-            // 训练模式：只显示建筑名称和闪烁图片
-            activeElements.target.innerHTML = `
+            targetHTML = `
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; ${highlightStyle};">
                     <div style="position: relative; width: 120px; height: 120px;">
                         <img src="https://data.aoe4world.com/images/buildings/buddhist-temple-3.png" alt="佛教寺庙" style="position: absolute; width: 120px; height: 120px; animation: blink 2s infinite;">
@@ -428,8 +432,7 @@ function updateTarget() {
         }
     } else {
         if (isLearnMode) {
-            // 学习模式：显示完整的快捷键提示和图片
-            activeElements.target.innerHTML = `
+            targetHTML = `
                 <div style="display: flex; align-items: center; justify-content: center; gap: 20px; ${highlightStyle};">
                     <img src="${buildingImage}" alt="${buildingName}" style="width: 100px; height: 100px;">
                     <div style="text-align: left;">
@@ -440,8 +443,7 @@ function updateTarget() {
                 </div>
             `;
         } else {
-            // 训练模式：只显示建筑名称和图片
-            activeElements.target.innerHTML = `
+            targetHTML = `
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; ${highlightStyle};">
                     <img src="${buildingImage}" alt="${buildingName}" style="width: 120px; height: 120px;">
                     <div style="font-size: 36px; font-weight: bold;">${buildingName}</div>
@@ -449,6 +451,9 @@ function updateTarget() {
             `;
         }
     }
+    
+    // 一次性更新DOM
+    activeElements.target.innerHTML = targetHTML;
 }
 
 // 处理键盘按下
@@ -457,52 +462,54 @@ function handleKeyDown(e) {
     
     const pressedKey = e.key.toUpperCase();
     const isLearnMode = modeElements.learnMode.style.display === 'block';
+    const isTrainMode = modeElements.trainMode.style.display === 'block';
     
     if (!gameState.firstKey) {
         // 第一次按键（时代键）
         if (pressedKey === gameState.currentAge) {
             gameState.firstKey = pressedKey;
-            if (isLearnMode) {
-                activeElements.feedback.textContent = `时代键正确: ${pressedKey}`;
-            } else {
-                activeElements.feedback.textContent = '正确!';
-            }
+            
+            // 快速更新反馈
+            activeElements.feedback.textContent = isLearnMode ? `时代键正确: ${pressedKey}` : '正确!';
             activeElements.feedback.className = 'feedback correct';
         } else {
             gameState.currentWrongCount++;
             
             // 检查是否连错三次
             if (gameState.currentWrongCount >= 3) {
-                // 提取ageKey和funcKey，处理带有后缀的键值
+                // 提取ageKey和funcKey
                 const keyParts = gameState.currentKey.split('-');
                 const ageKey = keyParts[0];
-                const funcKey = keyParts[1]; // 忽略后缀部分
+                const funcKey = keyParts[1];
+                
+                // 更新反馈
                 activeElements.feedback.textContent = `正确按键：${ageKey} → ${funcKey}`;
                 activeElements.feedback.className = 'feedback wrong';
                 gameState.wrong++;
                 
                 // 记录错题（只在训练模式下）
-                const isTrainMode = modeElements.trainMode.style.display === 'block';
                 if (isTrainMode && gameState.currentTrainingSession) {
-                    // 找到当前训练会话
-                    const currentSession = gameState.wrongAnswers.find(session => 
-                        session.timestamp === gameState.currentTrainingSession
-                    );
-                    if (currentSession) {
-                        if (!currentSession.errors[gameState.currentKey]) {
-                            currentSession.errors[gameState.currentKey] = {
-                                count: 1,
-                                building: keyMappings[gameState.currentKey]
-                            };
-                        } else {
-                            currentSession.errors[gameState.currentKey].count++;
+                    // 快速找到当前训练会话
+                    for (let i = 0; i < gameState.wrongAnswers.length; i++) {
+                        const session = gameState.wrongAnswers[i];
+                        if (session.timestamp === gameState.currentTrainingSession) {
+                            if (!session.errors[gameState.currentKey]) {
+                                session.errors[gameState.currentKey] = {
+                                    count: 1,
+                                    building: keyMappings[gameState.currentKey]
+                                };
+                            } else {
+                                session.errors[gameState.currentKey].count++;
+                            }
+                            break;
                         }
                     }
                 }
                 
                 // 等待用户下一次按键
                 document.addEventListener('keydown', function handleNextKey(e) {
-                    if (e.key.toUpperCase() === ageKey || e.key.toUpperCase() === funcKey) {
+                    const nextKey = e.key.toUpperCase();
+                    if (nextKey === ageKey || nextKey === funcKey) {
                         activeElements.feedback.textContent = '';
                         activeElements.feedback.className = 'feedback';
                         gameState.currentCount++;
@@ -522,47 +529,46 @@ function handleKeyDown(e) {
                     }
                 });
             } else {
-                if (isLearnMode) {
-                    activeElements.feedback.textContent = `时代键错误，应为: ${gameState.currentAge}`;
-                } else {
-                    activeElements.feedback.textContent = '错误!';
-                }
+                // 更新反馈
+                activeElements.feedback.textContent = isLearnMode ? `时代键错误，应为: ${gameState.currentAge}` : '错误!';
                 activeElements.feedback.className = 'feedback wrong';
                 gameState.wrong++;
                 
                 // 记录错题（只在训练模式下）
-                const isTrainMode = modeElements.trainMode.style.display === 'block';
                 if (isTrainMode && gameState.currentTrainingSession) {
-                    // 找到当前训练会话
-                    const currentSession = gameState.wrongAnswers.find(session => 
-                        session.timestamp === gameState.currentTrainingSession
-                    );
-                    if (currentSession) {
-                        if (!currentSession.errors[gameState.currentKey]) {
-                            currentSession.errors[gameState.currentKey] = {
-                                count: 1,
-                                building: keyMappings[gameState.currentKey]
-                            };
-                        } else {
-                            currentSession.errors[gameState.currentKey].count++;
+                    // 快速找到当前训练会话
+                    for (let i = 0; i < gameState.wrongAnswers.length; i++) {
+                        const session = gameState.wrongAnswers[i];
+                        if (session.timestamp === gameState.currentTrainingSession) {
+                            if (!session.errors[gameState.currentKey]) {
+                                session.errors[gameState.currentKey] = {
+                                    count: 1,
+                                    building: keyMappings[gameState.currentKey]
+                                };
+                            } else {
+                                session.errors[gameState.currentKey].count++;
+                            }
+                            break;
                         }
                     }
                 }
                 
+                // 快速清除反馈
                 setTimeout(() => {
                     activeElements.feedback.textContent = '';
                     activeElements.feedback.className = 'feedback';
-                }, 1000);
+                }, 500);
             }
         }
     } else {
         // 第二次按键（功能键）
         const fullKey = `${gameState.firstKey}-${pressedKey}`;
         
-        // 检查fullKey是否与currentKey匹配，或是否是currentKey的前缀（处理带有后缀的键值，如Q-F-byzantine）
+        // 快速检查匹配
         const isMatch = fullKey === gameState.currentKey || gameState.currentKey.startsWith(`${fullKey}-`);
         
         if (isMatch) {
+            // 快速更新反馈
             activeElements.feedback.textContent = '完全正确!';
             activeElements.feedback.className = 'feedback correct';
             gameState.correct++;
@@ -570,15 +576,16 @@ function handleKeyDown(e) {
             activeElements.progress.textContent = gameState.currentCount;
             gameState.firstKey = null;
             
-            // 正确回答后，减少错误次数或清除错误记录
-            gameState.wrongAnswers.forEach(session => {
+            // 快速更新错误记录
+            for (let i = 0; i < gameState.wrongAnswers.length; i++) {
+                const session = gameState.wrongAnswers[i];
                 if (session.errors[gameState.currentKey]) {
                     session.errors[gameState.currentKey].count--;
                     if (session.errors[gameState.currentKey].count <= 0) {
                         delete session.errors[gameState.currentKey];
                     }
                 }
-            });
+            }
             
             // 检查是否达到训练次数
             if (gameState.currentCount >= gameState.totalCount) {
@@ -595,29 +602,31 @@ function handleKeyDown(e) {
             
             // 检查是否连错三次
             if (gameState.currentWrongCount >= 3) {
-                // 提取ageKey和funcKey，处理带有后缀的键值
+                // 提取ageKey和funcKey
                 const keyParts = gameState.currentKey.split('-');
                 const ageKey = keyParts[0];
-                const funcKey = keyParts[1]; // 忽略后缀部分
+                const funcKey = keyParts[1];
+                
+                // 更新反馈
                 activeElements.feedback.textContent = `正确按键：${ageKey} → ${funcKey}`;
                 activeElements.feedback.className = 'feedback wrong';
                 gameState.wrong++;
                 
                 // 记录错题（只在训练模式下）
-                const isTrainMode = modeElements.trainMode.style.display === 'block';
                 if (isTrainMode && gameState.currentTrainingSession) {
-                    // 找到当前训练会话
-                    const currentSession = gameState.wrongAnswers.find(session => 
-                        session.timestamp === gameState.currentTrainingSession
-                    );
-                    if (currentSession) {
-                        if (!currentSession.errors[gameState.currentKey]) {
-                            currentSession.errors[gameState.currentKey] = {
-                                count: 1,
-                                building: keyMappings[gameState.currentKey]
-                            };
-                        } else {
-                            currentSession.errors[gameState.currentKey].count++;
+                    // 快速找到当前训练会话
+                    for (let i = 0; i < gameState.wrongAnswers.length; i++) {
+                        const session = gameState.wrongAnswers[i];
+                        if (session.timestamp === gameState.currentTrainingSession) {
+                            if (!session.errors[gameState.currentKey]) {
+                                session.errors[gameState.currentKey] = {
+                                    count: 1,
+                                    building: keyMappings[gameState.currentKey]
+                                };
+                            } else {
+                                session.errors[gameState.currentKey].count++;
+                            }
+                            break;
                         }
                     }
                 }
@@ -645,39 +654,37 @@ function handleKeyDown(e) {
                     }
                 });
             } else {
-                if (isLearnMode) {
-                    activeElements.feedback.textContent = '功能键错误!';
-                } else {
-                    activeElements.feedback.textContent = '错误!';
-                }
+                // 更新反馈
+                activeElements.feedback.textContent = isLearnMode ? '功能键错误!' : '错误!';
                 activeElements.feedback.className = 'feedback wrong';
                 gameState.wrong++;
                 
                 // 记录错题（只在训练模式下）
-                const isTrainMode = modeElements.trainMode.style.display === 'block';
                 if (isTrainMode && gameState.currentTrainingSession) {
-                    // 找到当前训练会话
-                    const currentSession = gameState.wrongAnswers.find(session => 
-                        session.timestamp === gameState.currentTrainingSession
-                    );
-                    if (currentSession) {
-                        if (!currentSession.errors[gameState.currentKey]) {
-                            currentSession.errors[gameState.currentKey] = {
-                                count: 1,
-                                building: keyMappings[gameState.currentKey]
-                            };
-                        } else {
-                            currentSession.errors[gameState.currentKey].count++;
+                    // 快速找到当前训练会话
+                    for (let i = 0; i < gameState.wrongAnswers.length; i++) {
+                        const session = gameState.wrongAnswers[i];
+                        if (session.timestamp === gameState.currentTrainingSession) {
+                            if (!session.errors[gameState.currentKey]) {
+                                session.errors[gameState.currentKey] = {
+                                    count: 1,
+                                    building: keyMappings[gameState.currentKey]
+                                };
+                            } else {
+                                session.errors[gameState.currentKey].count++;
+                            }
+                            break;
                         }
                     }
                 }
                 
                 gameState.firstKey = null;
                 
+                // 快速清除反馈
                 setTimeout(() => {
                     activeElements.feedback.textContent = '';
                     activeElements.feedback.className = 'feedback';
-                }, 1000);
+                }, 500);
             }
         }
     }
