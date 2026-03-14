@@ -279,14 +279,62 @@ function setupSelectAllButtons() {
 
 // 结束训练按钮功能
 function setupConfirmButtons() {
-    // 学习模式结束训练按钮
+    // 学习模式全选/取消全选按钮
     document.getElementById('confirm-selection-btn').addEventListener('click', function() {
+        // 检查是否所有可见的建筑都已选中
+        let allChecked = true;
+        document.querySelectorAll('.building-checkbox').forEach(checkbox => {
+            if (checkbox.style.display !== 'none') {
+                const input = checkbox.querySelector('input[type="checkbox"]');
+                if (input && !input.checked) {
+                    allChecked = false;
+                }
+            }
+        });
+        
+        // 切换全选/取消全选状态
+        document.querySelectorAll('.building-checkbox').forEach(checkbox => {
+            if (checkbox.style.display !== 'none') {
+                const input = checkbox.querySelector('input[type="checkbox"]');
+                if (input) {
+                    input.checked = !allChecked;
+                }
+            }
+        });
+    });
+    
+    // 学习模式结束训练按钮
+    document.getElementById('end-training-btn').addEventListener('click', function() {
         // 与重置按钮功能一样
         resetGame();
     });
     
-    // 训练模式结束训练按钮
+    // 训练模式全选/取消全选按钮
     document.getElementById('train-confirm-selection-btn').addEventListener('click', function() {
+        // 检查是否所有可见的建筑都已选中
+        let allChecked = true;
+        document.querySelectorAll('.building-checkbox').forEach(checkbox => {
+            if (checkbox.style.display !== 'none') {
+                const input = checkbox.querySelector('input[type="checkbox"]');
+                if (input && !input.checked) {
+                    allChecked = false;
+                }
+            }
+        });
+        
+        // 切换全选/取消全选状态
+        document.querySelectorAll('.building-checkbox').forEach(checkbox => {
+            if (checkbox.style.display !== 'none') {
+                const input = checkbox.querySelector('input[type="checkbox"]');
+                if (input) {
+                    input.checked = !allChecked;
+                }
+            }
+        });
+    });
+    
+    // 训练模式结束训练按钮
+    document.getElementById('train-end-training-btn').addEventListener('click', function() {
         // 与重置按钮功能一样
         resetGame();
     });
@@ -662,6 +710,12 @@ function startGame() {
     activeElements.progress.textContent = '0';
     
     updateTarget();
+    
+    // 滚动到游戏区域
+    const gameArea = document.querySelector('.game-area');
+    if (gameArea) {
+        gameArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
     
     gameState.timer = setInterval(() => {
         gameState.time++;

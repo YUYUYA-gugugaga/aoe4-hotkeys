@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -687,7 +687,10 @@
                     </div>
                 </div>
                 
-                <button id="confirm-selection-btn">结束训练</button>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <button id="confirm-selection-btn" style="background-color: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">全选</button>
+                    <button id="end-training-btn" style="background-color: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">结束训练</button>
+                </div>
             </div>
             <div class="game-area">
                 <div class="target" id="target"></div>
@@ -1299,7 +1302,10 @@
                     </div>
                 </div>
                 
-                <button id="train-confirm-selection-btn">结束训练</button>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <button id="train-confirm-selection-btn" style="background-color: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">全选</button>
+                    <button id="train-end-training-btn" style="background-color: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">结束训练</button>
+                </div>
             </div>
             <div class="game-area">
                 <div class="target" id="train-target"></div>
